@@ -1,0 +1,8 @@
+% layout 'default';
+% title 'Calendar';
+
+
+<p class="lead">Galloway Township Events of Community Interest</p>
+
+<iframe src="https://www.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ivgf5vo85m6t7daacoj4ei32e8%40group.calendar.google.com&amp;color=%232F6309&amp;ctz=America%2FNew_York" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe><br/>
+<iframe src="https://www.google.com/calendar/embed?mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ivgf5vo85m6t7daacoj4ei32e8%40group.calendar.google.com&amp;color=%232F6309&amp;ctz=America%2FNew_York" style=" border-width:0 " width="400" height="600" frameborder="0" scrolling="no"></iframe>

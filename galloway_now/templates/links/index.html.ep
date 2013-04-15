@@ -1,0 +1,30 @@
+% layout 'default';
+% title 'Local Links';
+
+
+<p class="lead">Links to sites of local interest.</p>
+
+<div class="row-fluid">
+     <div class="span6">
+         <h4>News</h4>
+         <ul>
+             <li><a href="http://galloway.patch.com/">Galloway Patch</a></li>
+             <li><a href="http://www.shorenewstoday.com/snt/news/index.php/galloway-twp.html">The Current of Galloway</a></li>
+             <li><a href="http://www.pressofatlanticcity.com/communities/galloway/">The Press of Atlantic City's Hometown Galloway</a></li>
+             <li><a href="http://www.pressofatlanticcity.com/news/press/atlantic/">The Press of Atlantic City's Atlantic County News</a></li>
+         </ul>
+     </div>
+
+     <div class="span6">
+         <h4>Government</h4>
+         <ul>
+             <li><a href="http://www.gallowaytwp-nj.gov/">Galloway Township</a></li>
+             <li><a href="http://www.gtps.k12.nj.us/">Galloway Public Schools District</a></li>
+             <li><a href="http://www.gtps.k12.nj.us/district/board/board.html">Galloway Board of Education</a></li>
+             <li><a href="http://www.aclink.org/">Atlantic County</a></li>
+         </ul>
+</div> <!-- row -->
+
+<p>Galloway Township has a rather complete list of links on its <a href="http://www.gallowaytwp-nj.gov/index.php?view=links">website</a>.</p>
+
+</dl>

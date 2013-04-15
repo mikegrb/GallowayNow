@@ -1,0 +1,9 @@
+% layout 'default';
+% title 'Public Notices';
+
+<h3 class="notice_title"><%= $notice->{title} %></h3>
+<div class="notice_text"><p><%= $notice->{body} %></p></div>
+<div id="notice_meta">
+    <pre>First seen: <%= $notice->{seen_date} %>
+Press ID: <%= $notice->{pub_id} %></pre>
+</div>

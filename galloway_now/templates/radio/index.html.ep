@@ -1,0 +1,70 @@
+% layout 'default';
+% title 'Fire/EMS Radio';
+
+<p class="lead">Live Galloway Township Fire and EMS radio traffic.</p>
+
+<p>Listen in your browser below or <a href="http://gallowaynow.com:8000/stream.m3u">click here</a> to launch your default player.</p>
+
+<p>If you have an Icecast stream player that supports metadata, such as iTunes
+    or <a href="https://play.google.com/store/apps/details?id=com.scannerradio&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5zY2FubmVycmFkaW8iXQ..">Scanner Radio on Android</a>,
+    you can listen to the stream by opening this URL:</p>
+
+<code>http://gallowaynow.com:8000/stream</code>
+
+<br/><br/><br/>
+
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio">
+  <div class="jp-type-single">
+    <div class="jp-gui jp-interface">
+      <ul class="jp-controls">
+        <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+        <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+        <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+        <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+        <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+      </ul>
+      <div class="jp-progress">
+        <div class="jp-seek-bar">
+          <div class="jp-play-bar"></div>
+        </div>
+      </div>
+      <div class="jp-volume-bar">
+        <div class="jp-volume-bar-value"></div>
+      </div>
+      <div class="jp-time-holder">
+        <div class="jp-current-time"></div>
+      </div>
+    </div>
+    <div class="jp-title">
+      <ul>
+        <li>Live Fire/EMS Audio</li>
+      </ul>
+    </div>
+    <div class="jp-no-solution">
+      <span>Update Required</span>
+      To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/jquery1.9.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/jquery.jplayer.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#jquery_jplayer_1").jPlayer({
+      ready: function () {
+        $(this).jPlayer("setMedia", {
+          mp3: "http://gallowaynow.com:8000/stream",
+        });
+      },
+      swfPath: "/assets/swf",
+      supplied: "mp3"
+    });
+  });
+</script>
+
+

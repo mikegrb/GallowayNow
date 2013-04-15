@@ -1,0 +1,28 @@
+% layout 'default';
+<div class="hero-unit">
+<h1>Galloway Now</h1>
+<p>What's happening now in Galloway Township, NJ.</p>
+</div>
+
+<dl class="dl-horizontal">
+    <dt>Fire/EMS Radio</dt>
+    <dd>Listen live to Galloway EMS and Fire radio traffic and county wide
+        paramedics.  An archive of recordings is also available.</dd>
+
+    <dt>Events</dt>
+    <dd>A community calendar of events is available to make sure you never miss
+        an important event in Galloway.</dd>
+
+    <dt>Power Outages</dt>
+    <dd>We monitor and graph Atlantic City Electric power outages across its
+        service area.</dd>
+
+
+    <dt>Public Notices</dt>
+    <dd>We monitor and reprint all public notices from the Press of Atlantic
+        City that mention Galloway.</dd>
+
+%#    <dt>More?</dt>
+%#    <dd>What Galloway content are we missing that you would like to see?</dd>
+
+</dl>

@@ -1,0 +1,39 @@
+% layout 'default';
+% title 'Power Outages';
+
+
+<p class="lead">For the latest outage information, see the <a href="http://www.atlanticcityelectric.com/home/emergency/maps/stormcenter/">Atlantic City Electric Storm Center</a>.</p>
+
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Total Daily</a></li>
+    <li><a href="#tab2" data-toggle="tab">Atlantic Co. Daily</a></li>
+    <li><a href="#tab3" data-toggle="tab">Ocean Co. Daily</a></li>
+    <li><a href="#tab4" data-toggle="tab">Total Weekly</a></li>
+    <li><a href="#tab5" data-toggle="tab">Atlantic Co. Weekly</a></li>
+    <li><a href="#tab6" data-toggle="tab">Ocean Co. Weekly</a></li>
+
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+        <img src="http://thegrebs.com/~michael/ace_outages/total_outage-daily.png" width="881" height="313" />
+    </div>
+    <div class="tab-pane" id="tab2">
+        <img src="http://thegrebs.com/~michael/ace_outages/atlantic_county_outage-daily.png" width="881" height="299" />
+    </div>
+    <div class="tab-pane" id="tab3">
+        <img src="http://thegrebs.com/~michael/ace_outages/ocean_county_outage-daily.png" width="881" height="299" />
+    </div>
+    <div class="tab-pane" id="tab4">
+        <img src="http://thegrebs.com/~michael/ace_outages/total_outage-weekly.png" width="881" height="313" />
+    </div>
+    <div class="tab-pane" id="tab5">
+        <img src="http://thegrebs.com/~michael/ace_outages/atlantic_county_outage-weekly.png" width="881" height="299" />
+    </div>
+    <div class="tab-pane" id="tab6">
+        <img src="http://thegrebs.com/~michael/ace_outages/ocean_county_outage-weekly.png" width="881" height="299" />
+    </div>
+  </div>
+</div>
+
