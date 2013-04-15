@@ -8,7 +8,7 @@
 
 % for my $notice (@$notices) {
       <h3 class="notice_title"><a href="/notice/<%= $notice->{id} %>"><%= $notice->{title} %></a></h3>
-      <div class="notice_text"><p><%= $notice->{body} %></p></div>
+      <div class="notice_text"><p><%== $notice->{body} %></p></div>
       <hr>
 % }
 
