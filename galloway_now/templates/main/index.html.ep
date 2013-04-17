@@ -4,25 +4,28 @@
 <p>What's happening now in Galloway Township, NJ.</p>
 </div>
 
-<dl class="dl-horizontal">
-    <dt>Fire/EMS Radio</dt>
-    <dd>Listen live to Galloway EMS and Fire radio traffic and county wide
-        paramedics.  An archive of recordings is also available.</dd>
+<div class="row-fluid">
+    <div class="span6">
+        <dl class="dl-horizontal">
+            <dt><a href="/radio/">Fire/EMS Radio</a></dt>
+            <dd>Listen live to Galloway EMS and Fire radio traffic and county wide
+                paramedics.</dd>
 
-    <dt>Events</dt>
-    <dd>A community calendar of events is available to make sure you never miss
-        an important event in Galloway.</dd>
+            <dt><a href="/calendar/">Calendar</a></dt>
+            <dd>A community calendar of events is available to make sure you never miss
+                an important event in Galloway.</dd>
 
-    <dt>Power Outages</dt>
-    <dd>We monitor and graph Atlantic City Electric power outages across its
-        service area.</dd>
+            <dt><a href="/outages/">Power Outages</a></dt>
+            <dd>Graphs of Atlantic City Electric power outages across its service area.</dd>
 
+            <dt><a href="/notices/">Public Notices</a></dt>
+            <dd>Public notices from the Press of Atlantic City that mention Galloway.</dd>
+        </dl>
+    </div> <!-- span6 -->
 
-    <dt>Public Notices</dt>
-    <dd>We monitor and reprint all public notices from the Press of Atlantic
-        City that mention Galloway.</dd>
+    <div class="span6">
+        <a class="twitter-timeline" href="https://twitter.com/GallowayNow" data-widget-id="323787555659194368" data-chrome="nofooter" width="400" height="500">Tweets by @GallowayNow</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
 
-%#    <dt>More?</dt>
-%#    <dd>What Galloway content are we missing that you would like to see?</dd>
-
-</dl>
+</div> <!-- row -->
