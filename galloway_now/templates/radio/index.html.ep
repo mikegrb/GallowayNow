@@ -13,6 +13,7 @@
 
 <br/><br/><br/>
 
+<h4>Web Player:</h4>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio">
   <div class="jp-type-single">
@@ -49,11 +50,22 @@
   </div>
 </div>
 
+<h4>Current Activity:</h4>
+<pre id="metalog"></pre>
+
 <script src="/assets/js/jquery1.9.1.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/jquery.jplayer.min.js"></script>
 
 <script type="text/javascript">
+  function update() {
+    $.get("/radio/log", function(data) {
+      $("#metalog").html(data);
+      window.setTimeout(update, 5000);
+    });
+  }
+
+
   $(document).ready(function(){
     $("#jquery_jplayer_1").jPlayer({
       ready: function () {
@@ -65,6 +77,8 @@
       supplied: "mp3"
     });
   });
+  update();
+
 </script>
 
 
