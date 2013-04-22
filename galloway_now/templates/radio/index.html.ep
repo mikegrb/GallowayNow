@@ -57,6 +57,13 @@
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/jquery.jplayer.min.js"></script>
 
+
+<h4>Archive</h4>
+<p>An archive of previous radio traffic is available.  Recordings are in MP3
+  format, one MP3 per hour sorted into folders for year, month, than day.  The
+  hourly MP3s have had silence removed.</p>
+<p><a href="/radio/archive/">Click here for the archive</a></p>
+
 <script type="text/javascript">
   function update() {
     $.get("/radio/log", function(data) {
