@@ -25,6 +25,16 @@
          </ul>
 </div> <!-- row -->
 
+<div class="row-fluid">
+    <div class="span6">
+        <h4>Weather</h4>
+        <ul>
+            <li><a href="http://forecast.weather.gov/MapClick.php?lat=39.475955540420635&lon=-74.50927734375">NWS Point Forecast for Galloway</a></li>
+            <li><a href="http://forecast.weather.gov/MapClick.php?lat=39.47596&lon=-74.50927734375&unit=0&lg=english&FcstType=graphical">NWS Hourly Weather Graph for Galloway</a></li>
+        </ul>
+    </div>
+</div> <!-- row -->
+
 <p>Galloway Township has a rather complete list of links on its <a href="http://www.gallowaytwp-nj.gov/index.php?view=links">website</a>.</p>
 
 </dl>
