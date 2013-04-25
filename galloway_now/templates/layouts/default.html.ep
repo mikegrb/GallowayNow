@@ -9,7 +9,8 @@
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/gallowaynow.css" rel="stylesheet">
     <link href="/assets/css/jplayer.blue.monday.css" rel="stylesheet">
-    
+    <link rel="shortcut icon" href="/assets/img/gnow.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/img/gnow.ico" type="image/x-icon">
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
