@@ -5,13 +5,12 @@ use Mojo::Base 'Mojolicious::Controller';
 
 sub index {
     my $self = shift;
-    $self->render();
+    $self->render( archive_today => _get_archive_today() );
 }
 
 sub GetLog {
     my $self = shift;
-    my $path = $GallowayNow::archive_path
-        . strftime( '/%Y/%m/%d/log.txt', localtime );
+    my $path = $GallowayNow::archive_path . _get_archive_today() . 'log.txt';
     my $data = tail($path);
     $self->render( text => $data, format => 'txt' );
 }
@@ -24,6 +23,10 @@ sub tail {
     my @lines = <$fh>;
     close($fh);
     return join '', @lines;
+}
+
+sub _get_archive_today {
+    return strftime('/%Y/%m/%d/', localtime);
 }
 
 1;

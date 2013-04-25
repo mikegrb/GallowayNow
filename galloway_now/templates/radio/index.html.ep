@@ -62,7 +62,10 @@
 <p>An archive of previous radio traffic is available.  Recordings are in MP3
   format, one MP3 per hour sorted into folders for year, month, than day.  The
   hourly MP3s have had silence removed.</p>
-<p><a href="/radio/archive/">Click here for the archive</a></p>
+<ul>
+  <li><a href="/radio/archive<%= $archive_today %>">Jump to Today in the Archive</a></li>
+  <li><a href="/radio/archive/">Full Archive</a></li>
+</ul>
 
 <script type="text/javascript">
   function update() {
