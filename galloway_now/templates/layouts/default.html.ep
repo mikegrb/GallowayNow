@@ -30,7 +30,7 @@
               <%== $active_tab == 4 ? '<li class="active">':'<li>'%><a href="/notices">Public Notices</a></li>
               <%== $active_tab == 5 ? '<li class="active">':'<li>'%><a href="/calendar">Calendar</a></li>
               <%== $active_tab == 6 ? '<li class="active">':'<li>'%><a href="/links">Links</a></li>
-
+              <%== $active_tab == 7 ? '<li class="active">':'<li>'%><a href="/about">About</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

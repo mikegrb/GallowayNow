@@ -27,6 +27,8 @@ sub startup {
     $r->get('/notice/:id')->to( 'PublicNotices#view', active_tab => 4 );
     $r->get('/calendar/')->to( 'Calendar#index', active_tab => 5 );
     $r->get('/links/')->to( 'Links#index', active_tab => 6 );
+    $r->get('/about/')->to( 'About#index', active_tab => 7 );
+
 }
 
 1;
