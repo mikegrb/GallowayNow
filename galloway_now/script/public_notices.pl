@@ -84,7 +84,7 @@ while ( my $row = $q->fetchrow_hashref ) {
     $rss->add_item(
         title => $row->{title},
         permaLink =>
-            "http://galllowaynow.com/notice/$row->{id}",
+            "http://gallowaynow.com/notice/$row->{id}",
         description => $row->{body},
         pubDate     => strftime( "%a, %d %b %Y %T %z", localtime $row->{seen_ts} ) );
 }
