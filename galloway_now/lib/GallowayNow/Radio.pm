@@ -15,6 +15,11 @@ sub GetLog {
     $self->render( text => $data, format => 'txt' );
 }
 
+sub ArchiveToday {
+    my $self = shift;
+    $self->redirect_to( '/radio/archive' . _get_archive_today() );
+}
+
 sub tail {
     my $path = shift;
     my $lines = shift || 5;
