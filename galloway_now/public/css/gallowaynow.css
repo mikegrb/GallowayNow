@@ -8,3 +8,6 @@ body {
     width: 600px;
     font-size: x-small;
 }
+#log {
+    list-style-type: none;
+}

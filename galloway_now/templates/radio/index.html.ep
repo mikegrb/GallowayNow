@@ -12,6 +12,7 @@
 <code>http://gallowaynow.com:8000/stream</code>
 
 <br/><br/><br/>
+<link href="/assets/css/jplayer.blue.monday.css" rel="stylesheet">
 
 <h4>Web Player:</h4>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
@@ -57,15 +58,13 @@
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/jquery.jplayer.min.js"></script>
 
+<br/><br/>
 
-<h4>Archive</h4>
+<h2><a href="/radio/archive/">Archive</a></h2>
 <p>An archive of previous radio traffic is available.  Recordings are in MP3
   format, one MP3 per hour sorted into folders for year, month, than day.  The
   hourly MP3s have had silence removed.</p>
-<ul>
-  <li><a href="/radio/archive<%= $archive_today %>">Jump to Today in the Archive</a></li>
-  <li><a href="/radio/archive/">Full Archive</a></li>
-</ul>
+
 
 <script type="text/javascript">
   function update() {
