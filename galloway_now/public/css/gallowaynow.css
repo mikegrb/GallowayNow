@@ -11,3 +11,9 @@ body {
 #log {
     list-style-type: none;
 }
+
+@media (min-width: 768px) { 
+  .sb-fixed{
+    position: fixed;
+  } 
+}
