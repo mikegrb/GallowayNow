@@ -74,6 +74,9 @@ $(function () {
   });
 
   function updateLog(date) {
+    $('#logtitle').text('');
+    $('#log').html('<i class="icon-spinner icon-spin icon-large"></i> Loading content...');
+      
     $.get("/radio/archive/log/" + date + "/log.txt", function (data) {
         $('#log').text("");
         $('#logtitle').text('Activity Log for ' + date)
