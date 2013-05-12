@@ -1,17 +1,11 @@
 % layout 'default';
 % title 'Fire/EMS Radio Archive';
 
-
-<p class="lead">Select the day you are interested in then click on a line in the log to play the archived audio from the top of that hour.</p>
-
 <div class="row-fluid">
   <div class="span3">
     <div class="sb-fixed">
-      <br/>
       <div id="datepicker"></div>
-      <br/><br/>
-
-      <div style="width:220">
+      <div style="width:220;margin-top:50px;">
       <div id="jquery_jplayer_1" class="jp-jplayer"></div>
       <div id="jp_container_1" class="jp-audio">
           <div class="jp-type-single">
@@ -53,7 +47,10 @@
 
   </div>
   <div class="span9">
-    <h3 id="logtitle"></h3>
+    <h3>Select the day you are interested in from the calendar on
+      the left, then click on a line from the log to play the archived audio
+      from the top of that hour.</h3>
+    <h4 id="logtitle"></h4>
     <div><ul id="log"></ul></div>
 </div>
 
