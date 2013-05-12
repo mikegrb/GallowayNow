@@ -61,6 +61,7 @@
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/jquery-ui-1.10.0.custom.min.js"></script>
 <script src="/assets/js/jquery.jplayer.min.js"></script>
+<script src="/assets/js/history.js"></script>
 
 
 <script>
@@ -72,17 +73,18 @@ $(function () {
           updateLog(date)
       }
   });
+  $("#jquery_jplayer_1").jPlayer({ swfPath: "/assets/swf" });
 
   function updateLog(date) {
     $('#log').text('');
-    $('#logtitle').html('<i class="icon-spinner icon-spin icon-large"></i> Loading activity log...');
-      
+    $('#logtitle').html('<i class="icon-spinner icon-spin icon-large"></i> Loading activity log...');      
     $.get("/radio/archive/log/" + date + "/log.txt", function (data) {
         $('#log').text("");
         $('#logtitle').text('Activity Log for ' + date)
         data.split(/\n/).forEach(function (line) {
             $("#log").append("<li>" + line + "</li>\n");
         });
+        History.pushState(null, null, '/radio/archive/' + date);
         $('#log').children().click(function () {
             var mp3_path = '/radio/archive/mp3/' + date + '/' + this.innerHTML.match(/^\d{2}/) + '00.mp3';
             $("#jquery_jplayer_1").jPlayer( "setMedia", {
@@ -95,9 +97,14 @@ $(function () {
     })
   };
 
-  $("#jquery_jplayer_1").jPlayer({ swfPath: "/assets/swf" });
-  updateLog($.datepicker.formatDate('yy/mm/dd', new Date()));
-
+  var linkedDate = History.getState().url.match(/\/archive\/(\d{4}\/\d{2}\/\d{2})/);
+  if ( linkedDate  ) {
+    $('#datepicker').datepicker('setDate', linkedDate[1]);
+    updateLog( linkedDate[1] );
+  } 
+  else {
+    updateLog($.datepicker.formatDate('yy/mm/dd', new Date()));
+  }
 });
 
 </script>
