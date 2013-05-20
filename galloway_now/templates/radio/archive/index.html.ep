@@ -1,8 +1,8 @@
 % layout 'default';
 % title 'Fire/EMS Radio Archive';
 
-<div class="row-fluid">
-  <div class="span3">
+<div class="row">
+  <div class="span5">
     <div class="sb-fixed">
       <div id="datepicker"></div>
       <div style="width:220;margin-top:50px;">
@@ -46,7 +46,7 @@
 
 
   </div>
-  <div class="span9">
+  <div class="span6">
     <h3>Select the day you are interested in from the calendar on
       the left, then click on a line from the log to play the archived audio
       from the top of that hour.</h3>
@@ -79,7 +79,8 @@ $(function () {
         $('#log').text("");
         $('#logtitle').text('Activity Log for ' + date)
         data.split(/\n/).forEach(function (line) {
-            $("#log").append("<li>" + line + "</li>\n");
+          var hour = line.match(/^\d{2}/);
+          $("#log").append("<a name=\"" + hour + "\">" +  line + "</a><br/>\n");
         });
         History.pushState(null, null, '/radio/archive/' + date);
         $('#log').children().click(function () {
@@ -88,7 +89,7 @@ $(function () {
                     mp3: mp3_path,
             });
             $("#jquery_jplayer_1").jPlayer( "play" );
-            
+            return false;
         })
 
     })
