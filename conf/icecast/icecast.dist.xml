@@ -1,0 +1,74 @@
+<icecast>
+    <location>Galloway Township, NJ</location>
+    <admin>michael@thegrebs.com</admin>
+
+    <limits>
+        <clients>100</clients>
+        <sources>3</sources>
+        <threadpool>5</threadpool>
+        <queue-size>524288</queue-size>
+        <client-timeout>30</client-timeout>
+        <header-timeout>15</header-timeout>
+        <source-timeout>10</source-timeout>
+        <burst-on-connect>1</burst-on-connect>
+        <burst-size>32768</burst-size>
+    </limits>
+
+    <authentication>
+        <source-password>somepassword</source-password>
+        <relay-password>somepassword</relay-password>
+        <admin-user>admin</admin-user>
+        <admin-password>somepassword</admin-password>
+    </authentication>
+
+    <directory>
+        <yp-url-timeout>15</yp-url-timeout>
+        <yp-url>http://dir.xiph.org/cgi-bin/yp-cgi</yp-url>
+    </directory>
+
+    <hostname>gallowaynow.com</hostname>
+    <listen-socket>
+        <port>8000</port>
+    </listen-socket>
+
+    <mount>
+        <mount-name>/stream</mount-name>
+        <public>1</public>
+        <stream-name>GallowayNow</stream-name>
+        <stream-description>Live EMS and Fire from Galloway Township, NJ</stream-description>
+        <genre>Scanner</genre>
+        <stream-url>http://gallowaynow.com</stream-url>
+        <fallback-mount>/silence</fallback-mount>
+        <fallback-override>1</fallback-override>
+    </mount>
+
+    <mount>
+        <mount-name>/silence</mount-name>
+        <public>0</public>
+        <stream-name>GallowayNow</stream-name>
+        <stream-description>Live EMS and Fire from Galloway Township, NJ</stream-description>
+        <genre>Scanner</genre>
+        <stream-url>http://gallowaynow.com</stream-url>
+    </mount>
+
+    <fileserve>1</fileserve>
+
+    <paths>
+        <basedir>/usr/share/icecast2</basedir>
+        <logdir>/var/log/icecast2</logdir>
+        <webroot>/usr/share/icecast2/web</webroot>
+        <adminroot>/usr/share/icecast2/admin</adminroot>
+        <alias source="/" destination="/status.xsl"/>
+    </paths>
+
+    <logging>
+        <accesslog>access.log</accesslog>
+        <errorlog>error.log</errorlog>
+        <loglevel>3</loglevel>
+        <logsize>10000</logsize>
+    </logging>
+
+    <security>
+        <chroot>0</chroot>
+    </security>
+</icecast>
