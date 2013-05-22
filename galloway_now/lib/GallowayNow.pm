@@ -30,7 +30,7 @@ sub startup {
     $r->get('/calendar/')->to( 'Calendar#index', active_tab => 5 );
     $r->get('/links/')->to( 'Links#index', active_tab => 6 );
     $r->get('/about/')->to( 'About#index', active_tab => 7 );
-
+    $r->get('/twiml')->to( 'Twiml#get');
 }
 
 1;
