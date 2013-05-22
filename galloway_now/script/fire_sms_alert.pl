@@ -12,7 +12,7 @@ use Config::Auto;
 use POSIX 'strftime';
 use WWW::Twilio::API;
 
-my $config = Config::Auto::parse("$FindBin::Bin/../../conf/fire_sms_aler.conf");
+my $config = Config::Auto::parse("$FindBin::Bin/../../conf/fire_sms_alert.conf");
 
 exit 10
     if -e $config->{touch_file}
@@ -46,5 +46,5 @@ unless ( $res->{code} =~ /^2../ ) {
     die "Error: ($res->{code}): $res->{message}\n$res->{content}";
 }
 
-touch($touch_file);
+touch($config->{touch_file});
 say $res->{content};
