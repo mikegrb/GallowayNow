@@ -6,30 +6,55 @@ use 5.010;
 use FindBin;
 BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 
+use DateTime;
 use File::Touch;
 use GallowayNow;
 use Config::Auto;
 use POSIX 'strftime';
 use WWW::Twilio::API;
+use List::MoreUtils 'uniq';
+use DateTime::Format::Strptime;
 
-my $config = Config::Auto::parse("$FindBin::Bin/../../conf/fire_sms_alert.conf");
+my $config
+    = Config::Auto::parse("$FindBin::Bin/../../conf/fire_sms_alert.conf");
 
 exit 10
     if -e $config->{touch_file}
     && ( stat $config->{touch_file} )[9]
     > time - ( $config->{sleep_time} * 60 );
 
-my $archive_path
-    = strftime( "$GallowayNow::archive_path/%Y/%m/%d/log.txt", localtime );
+my $today        = strftime( '%Y/%m/%d/', localtime );
+my $archive_path = $GallowayNow::archive_path . '/' . $today . '/log.txt';
+my $strp         = DateTime::Format::Strptime->new( pattern => '%Y/%m/%d/ %T' );
+my $threshold    = DateTime->now( time_zone => 'local', formatter => $strp )
+    ->set_time_zone('floating')->subtract( minutes => $config->{sleep_time} );
 
-chomp( my $count = `tail -n $log_lines $archive_path | grep -ci fire` );
+my @kept_lines;
+my $lines = `tail -n $config->{log_lines} $archive_path`;
 
-if ( $count < $config->{required_count} ) {
-#   say "$count lines with fire in last 10 lines of $archive_path";
+for my $line ( split /\n/, $lines ) {
+    if ( $line =~ /^(\d{2}):(\d{2}):(\d{2}) / ) {
+        push @kept_lines, $line
+            if $strp->parse_datetime("$today $1:$2:$3") > $threshold;
+    }
+}
+my @fire_lines = grep /fire/i, @kept_lines;
+
+if ( @fire_lines < $config->{required_count} ) {
+#    say @fire_lines . " lines with fire in last $config->{log_lines} lines of $archive_path";
     exit 0;
 }
 
-my $message = "$count messages matching fire in activity log.";
+my @fire_units
+    = uniq map { /- (\d+)\ ?\(?([^)]*)?\)?$/ ? ( $2 ? $2 : $1 ) : () }
+    @fire_lines;
+
+# shorten and join units for SMS
+# Engine 26-35 becomes E26-35, Rescue 8 R8, Dispatch, D, etc
+my $units = join ',',
+    sort map { s/([A-Z])[A-Z]* ?(.*)?/$1$2/i; $_ } @fire_units;
+
+my $message = @fire_lines . " fire lines from $units.";
 say $message;
 
 my $twilio = WWW::Twilio::API->new(
@@ -46,5 +71,6 @@ unless ( $res->{code} =~ /^2../ ) {
     die "Error: ($res->{code}): $res->{message}\n$res->{content}";
 }
 
-touch($config->{touch_file});
+system '/usr/bin/touch', $config->{touch_file};
+
 say $res->{content};
