@@ -49,7 +49,7 @@ my @fire_units
     = uniq map { /- (\d+)\ ?\(?([^)]*)?\)?$/ ? ( $2 ? $2 : $1 ) : () }
     @fire_lines;
 
-if ( @fire_lines < $config->{required_units} ) {
+if ( @fire_units < $config->{required_units} ) {
     say @fire_lines
         . ' lines matching fire in activity log but only '
         . @fire_units
