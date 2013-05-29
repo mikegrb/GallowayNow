@@ -49,6 +49,16 @@ my @fire_units
     = uniq map { /- (\d+)\ ?\(?([^)]*)?\)?$/ ? ( $2 ? $2 : $1 ) : () }
     @fire_lines;
 
+if ( @fire_lines < $config->{required_units} ) {
+    say @fire_lines
+        . ' lines matching fire in activity log but only '
+        . @fire_units
+        . ' units transmittting: ' . "\n"
+        . join "\n", @fire_lines;
+    exit 1;
+}
+
+
 # shorten and join units for SMS
 # Engine 26-35 becomes E26-35, Rescue 8 R8, Dispatch, D, etc
 my $units = join ',',
