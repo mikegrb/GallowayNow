@@ -1,0 +1,16 @@
+577.5 688.3     AC Squad 14-X
+1092.4 547.5    MEDCOM Medic
+313.0 346.7     MEDCOM Squad
+922.5 623.7     GTEMS 26-7 Duty Crew
+922.5 656.3     GTEMS 26-7 All Call
+1625 640.6      GTFD
+984.4 640.6     GTFD 26-1 Oceanville
+2359.4 640.6    GTFD 26-2 Germania
+437.5 640.6     GTFD 26-3 Pomona
+1125 640.6      GTFD 26-4 Bayview
+1232.0 1820.0   Abs FD
+232.0 1820.0    Abs FD
+1640.6 688.3    Abs Squad 8 Duty Crew
+1640.6 750      Abs Squad 8 All Call
+547.5 750       Abs Squad 8 All Call
+688.3 656.3     MEDCOM Squad

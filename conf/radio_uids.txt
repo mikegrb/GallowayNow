@@ -1,0 +1,83 @@
+# Galloway Ambulances
+16041	Dispatch
+16042	Dispatch
+16043	Dispatch
+
+770	Command 26-70
+774	26-74
+775	26-75
+776	26-76
+777	26-77
+778	26-78
+779	Rehab 26-79
+780	R-2600
+
+# Galloway Fire
+16042	Dispatch
+
+2608	26-06
+
+# 26-1 Oceanville
+113	Engine 26-13
+114	Engine 26-14
+117	Utility 26-17
+# 26-2 Germania
+220 Command 26-20
+225 Engine 26-25
+226 Engine 26-26
+227 Brush 26-27
+228	Utility 26-28
+229 Tanker 26-29
+# 26-3 Pomona
+10904   301
+334	Engine 26-34
+335	Engine 26-35
+336	Ladder 26-36
+337	Utility 26-37
+338	Rescue 26-38
+# 26-4 Bayview
+440	Command 26-40
+443	Utility 26-43
+444	Enging 26-44
+446	Engine 26-46
+449	Tower 26-49
+# 26-5 South Egg Harbor
+
+
+# Absecon EMS
+16133	Dispatch
+4975	A85
+4976	A86
+4977	A87
+
+# Absecon Fire
+16132	Dispatch
+
+# MEDCOM
+7097	MEDCOM
+7902	Chief 1
+8716	Chief 1
+7948	Chief 3
+7915	Chief 3
+
+7983	Medic 1
+7084	Medic 2
+7908	Medic 4
+12444	Medic 5
+7913	Medic 6
+7971	Medic 6
+7918	Medic 7
+7081	Medic 8
+799		Medic 10
+7940	Medic 10
+7954	Medic 12
+7969	Medic 12
+
+7945	Squad 30
+7949	Squad 30
+791		Squad 31
+7968	Squad 31
+7911	Squad 32
+7909	Squad 39
+7986	Squad 40
+
