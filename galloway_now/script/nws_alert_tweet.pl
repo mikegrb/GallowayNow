@@ -204,7 +204,7 @@ sub generate_tweet_from_alert {
     my $tweet = $cap_data->{headline};
     $tweet
         =~ s/issued .*?until (.*? at \d+:\d+(?:A|P)M) E(?:S|DT) by (.*)$/for Atlantic County until $1/;
-    my $short_sender = $3;
+    my $short_sender = $2;
     my $issued_by
         = exists( $twats{ $cap_data->{senderName} } )
         ? $twats{ $cap_data->{senderName} }
