@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rsync -aihxt --no-o --no-g --delete -e ssh --exclude galloway_now/log/ --exclude galloway_now/public/public_notices.xml --exclude .git /Users/mgreb/Dropbox/Documents/proj/gallowaynow/ thegrebs.com:gallowaynow
+rsync -aihxt --no-o --no-g --delete -e ssh --exclude galloway_now/log/ --exclude galloway_now/public/public_notices.xml --exclude conf/seen.yml --exclude .git /Users/mgreb/Dropbox/Documents/proj/gallowaynow/ thegrebs.com:gallowaynow

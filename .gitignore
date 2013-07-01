@@ -2,3 +2,4 @@ galloway_now/public/public_notices.xml
 conf/fire_sms_alert.conf
 conf/icecast/icecast.xml
 conf/icecast/silence_stream.xml
+conf/nws_alert_tweet.conf
