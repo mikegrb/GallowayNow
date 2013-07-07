@@ -11,8 +11,17 @@
 #log a {
     color: #333333;
 }
+.loghour {
+    background-color: #eee;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-top:    10px;
+    margin-bottom: 10px;
+    padding:  15px;
+}
 @media (min-width: 768px) { 
   .sb-fixed{
     position: fixed;
   } 
 }
+

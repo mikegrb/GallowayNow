@@ -51,7 +51,7 @@
       the left, then click on a line from the log to play the archived audio
       from the top of that hour.</h3>
     <h4 id="logtitle"></h4>
-    <div><ul id="log"></ul></div>
+    <div id="log"></div>
 </div>
 
 <script src="/assets/js/jquery1.9.1.min.js"></script>
@@ -62,6 +62,8 @@
 
 
 <script>
+var _gaq = _gaq || [];
+
 $(function () {
   $("#datepicker").datepicker({
       maxDate: +0,
@@ -77,15 +79,22 @@ $(function () {
     $('#logtitle').html('<i class="icon-spinner icon-spin icon-large"></i> Loading activity log...');      
     $.get("/radio/archive/log/" + date + "/log.txt", function (data) {
         $('#log').text("");
-        $('#logtitle').text('Activity Log for ' + date)
+        $('#logtitle').text('Activity Log for ' + date);
+        var last_hour = -1;
         data.split(/\n/).forEach(function (line) {
           var hour = line.match(/^\d{2}/);
-          $("#log").append("<a name=\"" + hour + "\">" +  line + "</a><br/>\n");
+          $('#log:not(:has(#log_' + hour + '))').append(
+            '<div id="log_' + hour + '" class="loghour">\n'
+            + '<a name="' + hour +'"><p><i class="icon-bullhorn icon-large"></i> Listen to ' + hour + ':00 - ' + hour +':59</p></a>'
+            + '</div>'
+          );
+          $("#log_" + hour).append("<a name=\"" + hour + "\">" +  line + "</a><br/>\n");
         });
         History.pushState(null, null, '/radio/archive/' + date);
         _gaq.push(['_trackPageview', '/radio/archive/' + date]);
-        $('#log').children().click(function () {
-            var hour = this.innerHTML.match(/^\d{2}/);
+
+        $('.loghour a').click(function () {
+            var hour = this.name;
             var mp3_path = '/radio/archive/mp3/' + date + '/' + hour + '00.mp3';
             $("#jquery_jplayer_1").jPlayer( "setMedia", {
                     mp3: mp3_path,
