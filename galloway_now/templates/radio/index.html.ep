@@ -61,10 +61,7 @@
 <br/><br/>
 
 <h2><a href="/radio/archive/">Archive</a></h2>
-<p>An archive of previous radio traffic is available.  Recordings are in MP3
-  format, one MP3 per hour sorted into folders for year, month, than day.  The
-  hourly MP3s have had silence removed.</p>
-
+<p>An archive of previous radio traffic is <a href="/radio/archive/">available</a>.</p>
 
 <script type="text/javascript">
   function update() {
@@ -73,7 +70,6 @@
       window.setTimeout(update, 5000);
     });
   }
-
 
   $(document).ready(function(){
     $("#jquery_jplayer_1").jPlayer({
