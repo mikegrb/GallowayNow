@@ -52,6 +52,7 @@
       archived audio from the top of that hour.</p>
     <h4 id="logtitle"></h4>
     <div id="log"></div>
+    <div id="end"><a name="end">&nbsp;</a></div>
 </div>
 
 <script src="/assets/js/jquery1.9.1.min.js"></script>
@@ -80,7 +81,6 @@ $(function () {
     $.get("/radio/archive/log/" + date + "/log.txt", function (data) {
         $('#log').text("");
         $('#logtitle').text('Activity Log for ' + date);
-        var last_hour = -1;
         data.split(/\n/).forEach(function (line) {
           if (! line) return;
           var hour = line.match(/^\d{2}/);
@@ -93,6 +93,8 @@ $(function () {
         });
         History.pushState(null, null, '/radio/archive/' + date);
         _gaq.push(['_trackPageview', '/radio/archive/' + date]);
+        $('#log').prepend('<a href="#end">Jump to end of log</a>');
+
 
         $('.loghour a').click(function () {
             var hour = this.name;
