@@ -82,6 +82,7 @@ $(function () {
         $('#logtitle').text('Activity Log for ' + date);
         var last_hour = -1;
         data.split(/\n/).forEach(function (line) {
+          if (! line) return;
           var hour = line.match(/^\d{2}/);
           $('#log:not(:has(#log_' + hour + '))').append(
             '<div id="log_' + hour + '" class="loghour">\n'
