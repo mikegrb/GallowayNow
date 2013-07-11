@@ -153,9 +153,12 @@ my %event_gets_tweeted = (
 my $config
     = Config::Auto::parse("$FindBin::Bin/../../conf/nws_alert_tweet.conf");
 
-my $yaml = YAML::Tiny->read("$FindBin::Bin/../../conf/seen.yml");
+my $yaml
+    = YAML::Tiny->read("$FindBin::Bin/../../conf/seen.yml") || YAML::Tiny->new;
 
-my $new_alerts = 0;
+my $new_alerts       = 0;
+my %currently_active = ();
+
 try {
     my $alert = Weather::NOAA::Alert->new( [ $config->{county_zone} ] );
     $alert->errorLog(1);
@@ -164,6 +167,7 @@ try {
     my $events = $alert->get_events()->{ $config->{county_zone} };
     for my $event ( keys %{$events} ) {
         ( my $id = $event ) =~ s/^.*?\.php\?x=//;
+        $currently_active{$id} = $events->{$event};
         next if ( $yaml->[0]{seen_cap}{$id} );
 
         $yaml->[0]->{seen_cap}{$id} = localtime;
@@ -197,6 +201,37 @@ catch {
 };
 
 $yaml->write("$FindBin::Bin/../../conf/seen.yml") if $new_alerts;
+
+# Twitter Stuff is complete, remained of code keeps active.yml in the conf
+# directory updated with full data for currently active alerts
+
+my $current_alerts = YAML::Tiny->read("$FindBin::Bin/../../conf/active.yml")
+    || YAML::Tiny->new;
+my $current_alerts_modified = 0;
+
+for my $alert ( keys %{ $current_alerts->[0] } ) {
+
+    # we've seen it and it's still active
+    if ( $currently_active{$alert} ) {
+        delete $currently_active{$alert};
+        next;
+    }
+
+    # we've seen it and it's expired
+    else {
+        delete $current_alerts->[0]{$alert};
+        $current_alerts_modified = 1;
+    }
+}
+
+# anything still in %currently_active is new
+for my $alert ( keys %currently_active ) {
+    $current_alerts->[0]->{$alert} = $currently_active{$alert};
+    $current_alerts_modified = 1;
+}
+
+$current_alerts->write("$FindBin::Bin/../../conf/active.yml")
+    if $current_alerts_modified;
 
 sub generate_tweet_from_alert {
     my ( $event, $cap_data ) = @_;
