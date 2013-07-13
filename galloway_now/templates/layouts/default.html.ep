@@ -43,6 +43,13 @@
       </div>
     </div>
     <div class="container">
+% for my $alert (  @{ nws_alerts() } ) {
+    <div class="alert<%= $alert->{class} %>">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong><%= $alert->{headline} %></strong>
+      <a href="http://alerts.weather.gov/cap/wwacapget.php?x=<%= $alert->{id} %>">Read More</a>
+    </div>
+% }
     <%= content %>
     </div>
 % if (current_route !~ /^radio/) { 

@@ -3,18 +3,23 @@ use Mojo::Base 'Mojolicious';
 
 use DBI;
 use Sys::Hostname;
+use GallowayNow::NWSAlert::Active;
 
 our $notices_db   = '/home/michael/public_html/public_notices/notices.db';
 our $archive_path = '/home/michael/public_html/stream/archive';
+our $conf_path    = '/home/michael/gallowaynow/conf';
 
 if ( hostname() ne 'orion' ) {
     $notices_db
         = '/Users/mgreb/Dropbox/Documents/proj/public_notice/notices.db';
     $archive_path = '/Users/mgreb/Dropbox/Documents/proj/scanner_archive/test';
+    $conf_path    = '/Users/mgreb/proj/gallowaynow/conf';
 }
 
 sub startup {
     my $self = shift;
+
+    $self->helper( nws_alerts => \&GallowayNow::NWSAlert::Active::fetch );
 
     my $r = $self->routes;
 
