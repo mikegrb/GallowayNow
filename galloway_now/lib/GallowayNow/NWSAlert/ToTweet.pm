@@ -13,16 +13,27 @@ my %twats = (
 sub generate_tweet_from_alert {
     my ( $event, $cap_data ) = @_;
 
+    my $short_sender;
     my $tweet = $cap_data->{headline};
-    $tweet
-        =~ s/issued .*?until (.*? at \d+:\d+(?:A|P)M) E(?:S|DT) by (.*)$/for Atlantic County until $1/;
-    my $short_sender = $2;
+    
+    if ( $tweet =~ m/Weather Statement/ ) {
+        $tweet
+            =~ s/issued \S+ \d+ at (\d+:\d+(?:A|P)M) E(?:S|DT) ? by (.*)$/issued at $1/;
+            $short_sender = $2;
+    }
+    else {
+        $tweet
+            =~ s/issued .*?until (.*? at \d+:\d+(?:A|P)M) E(?:S|DT) by (.*)$/for Atlantic County until $1, issued/;
+        $short_sender = $2;
+    }
+
     my $issued_by
         = exists( $twats{ $cap_data->{senderName} } )
         ? $twats{ $cap_data->{senderName} }
         : $short_sender;
-    $tweet .= ", issued by $issued_by $event";
+    $tweet .= " by $issued_by $event";
     return $tweet;
 }
 
 1;
+

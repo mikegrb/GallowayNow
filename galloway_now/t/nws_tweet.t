@@ -64,7 +64,7 @@ use GallowayNow::NWSAlert::ToTweet;
         }
     },
     'Spc Weather Statement' => {
-        tweet => 'Special Weather Statement issued at 5:20PM EDT by @NWS_MountHolly',
+        tweet => 'Special Weather Statement issued at 5:20PM by @NWS_MountHolly',
         data  => {
             'certainty'   => 'Observed',
             'urgency'     => 'Expected',
