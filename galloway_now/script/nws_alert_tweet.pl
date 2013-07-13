@@ -169,7 +169,7 @@ try {
         $yaml->[0]->{seen_cap}{$id} = localtime;
         $new_alerts++;
 
-        say Dumper( $event->{$event} );
+        say Dumper( $events->{$event} );
 
         my $tweet
             = GallowayNow::NWSAlert::ToTweet::generate_tweet_from_alert( $event,
