@@ -2,23 +2,19 @@
 
 use strict;
 use warnings;
+use 5.010;
 
+use FindBin;
+BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
+
+use GallowayNow::NWSAlert::ToTweet;
 use Weather::NOAA::Alert;
 use Config::Auto;
 use Net::Twitter;
 use YAML::Tiny;
 use Try::Tiny;
-use FindBin;
 
-use 5.010;
 use Data::Dumper;
-
-my %twats = (
-    'NWS Storm Prediction Center (Storm Prediction Center - Norman, Oklahoma)'
-        => '@NWSSPC',
-    'NWS Philadelphia - Mount Holly (New Jersey, Delaware, Southeastern Pennsylvania)'
-        => '@NWS_MountHolly',
-);
 
 # 22 june 2012 http://alerts.weather.gov/cap/product_list.txt
 my %event_gets_tweeted = (
@@ -173,7 +169,12 @@ try {
         $yaml->[0]->{seen_cap}{$id} = localtime;
         $new_alerts++;
 
-        my $tweet = generate_tweet_from_alert( $event, $events->{$event} );
+        say Dumper( $event->{$event} );
+
+        my $tweet
+            = GallowayNow::NWSAlert::ToTweet::generate_tweet_from_alert( $event,
+            $events->{$event} );
+
         say "Generated Tweet:\n\t$tweet";
 
         unless ( exists $event_gets_tweeted{ $events->{$event}{event} } ) {
@@ -233,18 +234,3 @@ for my $alert ( keys %currently_active ) {
 $current_alerts->write("$FindBin::Bin/../../conf/active.yml")
     if $current_alerts_modified;
 
-sub generate_tweet_from_alert {
-    my ( $event, $cap_data ) = @_;
-
-    my $tweet = $cap_data->{headline};
-    $tweet
-        =~ s/issued .*?until (.*? at \d+:\d+(?:A|P)M) E(?:S|DT) by (.*)$/for Atlantic County until $1/;
-    my $short_sender = $2;
-    my $issued_by
-        = exists( $twats{ $cap_data->{senderName} } )
-        ? $twats{ $cap_data->{senderName} }
-        : $short_sender;
-    $tweet .= ", issued by $issued_by $event";
-    print STDERR Dumper $cap_data;
-    return $tweet;
-}
