@@ -150,7 +150,7 @@ my $config
     = Config::Auto::parse("$FindBin::Bin/../../conf/nws_alert_tweet.conf");
 
 my $yaml
-    = YAML::Tiny->read("$FindBin::Bin/../../conf/seen.yml") || YAML::Tiny->new;
+    = YAML::Tiny->read("$FindBin::Bin/../../data/seen.yml") || YAML::Tiny->new;
 
 my $new_alerts       = 0;
 my %currently_active = ();
@@ -201,12 +201,12 @@ catch {
         unless $_ =~ m/^Can't call method "children" on an undefined value/;
 };
 
-$yaml->write("$FindBin::Bin/../../conf/seen.yml") if $new_alerts;
+$yaml->write("$FindBin::Bin/../../data/seen.yml") if $new_alerts;
 
-# Twitter Stuff is complete, remained of code keeps active.yml in the conf
+# Twitter Stuff is complete, remained of code keeps active.yml in the data
 # directory updated with full data for currently active alerts
 
-my $current_alerts = YAML::Tiny->read("$FindBin::Bin/../../conf/active.yml")
+my $current_alerts = YAML::Tiny->read("$FindBin::Bin/../../data/active.yml")
     || YAML::Tiny->new;
 my $current_alerts_modified = 0;
 
@@ -231,6 +231,6 @@ for my $alert ( keys %currently_active ) {
     $current_alerts_modified = 1;
 }
 
-$current_alerts->write("$FindBin::Bin/../../conf/active.yml")
+$current_alerts->write("$FindBin::Bin/../../data/active.yml")
     if $current_alerts_modified;
 

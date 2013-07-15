@@ -19,9 +19,7 @@ my %class_for_severity = (
 );
 
 sub fetch {
-    say "fetch alerts called \\o/";
-
-    my $path = $GallowayNow::conf_path . "/active.yml";
+    my $path = $GallowayNow::app_path . "/data/active.yml";
     return [] unless -e $path && -s _ > 7;
 
     my $current_alerts = YAML::Tiny->read($path)
