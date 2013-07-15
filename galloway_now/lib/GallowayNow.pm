@@ -8,7 +8,7 @@ use GallowayNow::NWSAlert::Active;
 our $notices_db   = '/home/michael/public_html/public_notices/notices.db';
 our $archive_path = '/home/michael/public_html/stream/archive';
 our $app_path     = '/home/michael/gallowaynow';
-H
+
 if ( hostname() ne 'orion' ) {
     $notices_db   = '/Users/mgreb/Dropbox/Documents/proj/public_notice/notices.db';
     $archive_path = '/Users/mgreb/Dropbox/Documents/proj/scanner_archive/test';
