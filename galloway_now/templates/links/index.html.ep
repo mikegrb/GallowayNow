@@ -14,6 +14,13 @@
              <li><a href="http://www.gallowaytwpnews.com/">GallowayTwpNews.com</a></li>
              <li><a href="http://galloway.patch.com/">Galloway Patch</a></li>
          </ul>
+
+         <h4>Public Safety</h4>
+         <ul>
+             <li><a href="http://gtpd.org/">Galloway Township Police Department</a></li>
+             <li><a href="http://www.gtas.org/">Galloway Township Ambulance Squad</a></li>
+             <li><a href="http://www.gtfd.org/">Galloway Township Fire Department</a></li>
+         </ul>
      </div>
 
      <div class="span6">
@@ -24,10 +31,7 @@
              <li><a href="http://www.gtps.k12.nj.us/district/board/board.html">Galloway Board of Education</a></li>
              <li><a href="http://www.aclink.org/">Atlantic County</a></li>
          </ul>
-</div> <!-- row -->
 
-<div class="row-fluid">
-    <div class="span6">
         <h4>Weather</h4>
         <ul>
             <li><a href="http://forecast.weather.gov/MapClick.php?lat=39.475955540420635&lon=-74.50927734375">NWS Point Forecast for Galloway</a></li>
