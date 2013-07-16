@@ -28,3 +28,8 @@
   The live audio feed comes from a <a href="http://www.uniden.com/scanners/homepatrol-1-simple-program-scanner/invt/homepatrol1g">Uniden HP-1</a>
   scanner at my home connected to a netbook that encodes and streams the audio
   to the Linode for serving.</p>
+
+<h4>Site Status</h4>
+<p>Site status is available via the external monitoring service
+  <a href="http://pingdom.com/">Pingdom</a> at
+  <a href="http://stats.gallowaynow.com/">http://stats.gallowaynow.com/</a></p>
