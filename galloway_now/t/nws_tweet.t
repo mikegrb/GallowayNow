@@ -82,6 +82,23 @@ use GallowayNow::NWSAlert::ToTweet;
                 'Special Weather Statement issued July 08 at 5:20PM EDT  by NWS Philadelphia - Mount Holly',
         }
     },
+    'Air Quality Alert' => {
+        tweet => 'Air Quality Alert issued at 9:42AM by @NWS_MountHolly',
+        data => {
+            'certainty' => 'Unknown',
+            'senderName' => 'NWS Philadelphia - Mount Holly (New Jersey, Delaware, Southeastern Pennsylvania)',
+            'urgency' => 'Unknown',
+            'instruction' => '',
+            'description' => 'blah blah',
+            'event' => 'Air Quality Alert',
+            'delete' => 0,
+            'category' => 'Met',
+            'severity' => 'Unknown',
+            'effective' => '2013-07-17T09:42:00-04:00',
+            'headline' => 'Air Quality Alert issued July 17 at 9:42AM EDT  by NWS Philadelphia - Mount Holly',
+            'expires' => '2013-07-18T00:00:00-04:00'
+        }
+    }
 );
 
 for my $test ( keys %test_data ) {
