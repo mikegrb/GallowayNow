@@ -7,7 +7,7 @@
 
 <p>If you have an Icecast stream player that supports metadata, such as iTunes
     or <a href="https://play.google.com/store/apps/details?id=com.scannerradio&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5zY2FubmVycmFkaW8iXQ..">Scanner Radio on Android</a>,
-    you can listen to the stream by opening this URL:</p>
+    you can listen to the stream by entering this address:</p>
 
 <code>http://gallowaynow.com:8000/stream</code>
 
