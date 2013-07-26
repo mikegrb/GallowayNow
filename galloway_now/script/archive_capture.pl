@@ -41,6 +41,8 @@ while (1) {
                 /usr/bin/sox  -t mp3 - $filename silence -l 1 0.3 1% -1 2.0 1 }
             );
 
+            system( '/usr/bin/touch', $path . 'log.txt' )
+                unless -e $path . 'log.txt';
             while ( my $line = <$err> ) {
                 chomp $line;
                 process_metadata( $path, $line );
