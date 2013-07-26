@@ -21,7 +21,7 @@ my $config
 $config->{touch_file} .= '_fire';
 
 exit 10
-    if -e $config->{touch_file} 
+    if -e $config->{touch_file}
     && ( stat $config->{touch_file} )[9]
     > time - ( $config->{sleep_time} * 60 );
 
