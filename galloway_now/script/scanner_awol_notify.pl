@@ -42,7 +42,7 @@ my $twilio = WWW::Twilio::API->new(
 my $res = $twilio->POST(
     'SMS/Messages.json',
     From => $config->{from},
-    To   => $config->{alerts_to},
+    To   => $config->{awol_alerts_to},
     Body => $message,
 );
 
