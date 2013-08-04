@@ -6,7 +6,8 @@ use 5.010;
 
 use RRD::Simple;
 use Mojo::UserAgent;
-use Data::Printer;
+
+sleep 4;
 
 my $data = Mojo::UserAgent->new->get('http://gallowaynow.com:8000/mystats.xsl')->res->body;
 exit unless $data =~ m/^Listeners: (\d+)$/m;
