@@ -7,33 +7,46 @@
 
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">Total Daily</a></li>
-    <li><a href="#tab2" data-toggle="tab">Atlantic Co. Daily</a></li>
-    <li><a href="#tab3" data-toggle="tab">Ocean Co. Daily</a></li>
-    <li><a href="#tab4" data-toggle="tab">Total Weekly</a></li>
-    <li><a href="#tab5" data-toggle="tab">Atlantic Co. Weekly</a></li>
-    <li><a href="#tab6" data-toggle="tab">Ocean Co. Weekly</a></li>
+    <li class="active"><a href="#daily" data-toggle="tab">Total Daily</a></li>
+    <li><a href="#atlco_daily" data-toggle="tab">Atlantic Co. Daily</a></li>
+    <li><a href="#ocnco_daily" data-toggle="tab">Ocean Co. Daily</a></li>
+    <li><a href="#tot_weekly" data-toggle="tab">Total Weekly</a></li>
+    <li><a href="#atlco_weekly" data-toggle="tab">Atlantic Co. Weekly</a></li>
+    <li><a href="#ocn_weekly" data-toggle="tab">Ocean Co. Weekly</a></li>
 
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="tab1">
+    <div class="tab-pane active" id="daily">
         <img src="http://thegrebs.com/~michael/ace_outages/total_outage-daily.png" width="881" height="313" />
     </div>
-    <div class="tab-pane" id="tab2">
+    <div class="tab-pane" id="atlco_daily">
         <img src="http://thegrebs.com/~michael/ace_outages/atlantic_county_outage-daily.png" width="881" height="299" />
     </div>
-    <div class="tab-pane" id="tab3">
+    <div class="tab-pane" id="ocnco_daily">
         <img src="http://thegrebs.com/~michael/ace_outages/ocean_county_outage-daily.png" width="881" height="299" />
     </div>
-    <div class="tab-pane" id="tab4">
+    <div class="tab-pane" id="tot_weekly">
         <img src="http://thegrebs.com/~michael/ace_outages/total_outage-weekly.png" width="881" height="313" />
     </div>
-    <div class="tab-pane" id="tab5">
+    <div class="tab-pane" id="atlco_weekly">
         <img src="http://thegrebs.com/~michael/ace_outages/atlantic_county_outage-weekly.png" width="881" height="299" />
     </div>
-    <div class="tab-pane" id="tab6">
+    <div class="tab-pane" id="ocn_weekly">
         <img src="http://thegrebs.com/~michael/ace_outages/ocean_county_outage-weekly.png" width="881" height="299" />
     </div>
   </div>
 </div>
 
+<script src="/assets/js/jquery1.9.1.min.js"></script>
+<script src="/assets/js/bootstrap3.min.js"></script>
+<script type="text/javascript">
+var url = document.location.toString();
+if (url.match('#')) {
+    $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show');
+}
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  console.log("fired");
+  window.location.hash = e.target.hash // activated tab
+})
+</script>

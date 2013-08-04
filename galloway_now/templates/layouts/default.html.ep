@@ -50,7 +50,7 @@
 % }
     <%= content %>
     </div>
-% if (current_route !~ /^radio/) { 
+% if (current_route !~ /^radio/ && current_route ne 'outages') {
     <script src="/assets/js/jquery1.9.1.min.js"></script>
     <script src="/assets/js/bootstrap3.min.js"></script>
 % } 
