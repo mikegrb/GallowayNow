@@ -75,7 +75,7 @@ $(function () {
   });
   $("#jquery_jplayer_1").jPlayer({ swfPath: "/assets/swf" });
 
-  function updateLog(date) {
+  function updateLog(date, target_hour) {
     $('#log').text('');
     $('#logtitle').html('<i class="icon-spinner icon-spin icon-large"></i> Loading activity log...');      
     $.get("/radio/archive/log/" + date + "/log.txt", function (data) {
@@ -86,6 +86,7 @@ $(function () {
           var hour = line.match(/^\d{2}/);
           $('#log:not(:has(#log_' + hour + '))').append(
             '<div id="log_' + hour + '" class="loghour">\n'
+            + '<div style="float:right"><a href="/radio/archive/' + date + '#' + hour  +'"><i class="icon-link"></i></a></div>'
             + '<a name="' + hour +'"><p><i class="icon-bullhorn icon-large"></i> Listen to ' + hour + ':00 - ' + hour +':59</p></a>'
             + '</div>'
           );
@@ -107,13 +108,16 @@ $(function () {
             return false;
         })
 
+        if (target_hour) {
+          $(window).scrollTop($('#log_' + target_hour ).position().top - 10)
+        }
     })
   };
 
-  var linkedDate = History.getState().url.match(/\/archive\/(\d{4}\/\d{2}\/\d{2})/);
+  var linkedDate = History.getState().url.match(/\/archive\/(\d{4}\/\d{2}\/\d{2})#?(\d{2})?/);
   if ( linkedDate  ) {
     $('#datepicker').datepicker('setDate', linkedDate[1]);
-    updateLog( linkedDate[1] );
+    updateLog( linkedDate[1], linkedDate[2] );
   } 
   else {
     updateLog($.datepicker.formatDate('yy/mm/dd', new Date()));
