@@ -2,7 +2,7 @@
 % title 'Fire/EMS Radio Archive';
 
 <div class="row">
-  <div class="span5">
+  <div class="col-lg-5">
     <div class="sb-fixed">
       <div id="datepicker"></div>
       <div style="width:220;margin-top:50px;">
@@ -46,7 +46,7 @@
 
 
   </div>
-  <div class="span6">
+  <div class="col-lg-6">
     <p>Select the day you are interested in from the calendar on
       the left, then click on text in one of the hours' boxes to play the
       archived audio from the top of that hour.</p>
@@ -56,7 +56,7 @@
 </div>
 
 <script src="/assets/js/jquery1.9.1.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/bootstrap3.min.js"></script>
 <script src="/assets/js/jquery-ui-1.10.0.custom.min.js"></script>
 <script src="/assets/js/jquery.jplayer.min.js"></script>
 <script src="/assets/js/history.js"></script>

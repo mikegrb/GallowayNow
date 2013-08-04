@@ -55,7 +55,7 @@
 <pre id="metalog"></pre>
 
 <script src="/assets/js/jquery1.9.1.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/bootstrap3.min.js"></script>
 <script src="/assets/js/jquery.jplayer.min.js"></script>
 
 <br/><br/>

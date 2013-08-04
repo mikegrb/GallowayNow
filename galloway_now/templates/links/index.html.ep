@@ -4,8 +4,8 @@
 
 <p class="lead">Links of local interest.</p>
 
-<div class="row-fluid">
-     <div class="span6">
+<div class="row">
+     <div class="col-lg-6">
          <h4>News</h4>
          <ul>
              <li><a href="http://www.shorenewstoday.com/snt/news/index.php/galloway-twp.html">The Current of Galloway</a></li>
@@ -23,7 +23,7 @@
          </ul>
      </div>
 
-     <div class="span6">
+     <div class="col-lg-6">
          <h4>Government</h4>
          <ul>
              <li><a href="http://www.gallowaytwp-nj.gov/">Galloway Township</a></li>

@@ -4,8 +4,8 @@
 
 <p class="lead">Public notices published in the Press of Atlantic City mentioning Galloway Township.</p>
 
-<p>An <a href="/assets/public_notices.xml">RSS feed</a> of these notices is available.</p>
-
+<p><a href="/assets/public_notices.xml"><i class="icon-rss-sign icon-large"></i></a>
+   An <a href="/assets/public_notices.xml">RSS feed</a> of these notices is available.</p>
 % for my $notice (@$notices) {
       <h3 class="notice_title"><a href="/notice/<%= $notice->{id} %>"><%= $notice->{title} %></a></h3>
       <div class="notice_text"><p><%== $notice->{body} %></p></div>

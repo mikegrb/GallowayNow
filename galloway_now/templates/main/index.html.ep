@@ -1,11 +1,11 @@
 % layout 'default';
-<div class="hero-unit">
+<div class="jumbotron">
 <h1>Galloway Now</h1>
 <p>What's happening now in Galloway Township, NJ.</p>
 </div>
 
-<div class="row-fluid">
-    <div class="span6">
+<div class="row">
+    <div class="col-lg-6">
         <dl class="dl-horizontal">
             <dt><a href="/radio/">Fire/EMS Radio</a></dt>
             <dd>Listen live to Galloway EMS and Fire radio traffic and county wide
@@ -21,11 +21,11 @@
             <dt><a href="/notices/">Public Notices</a></dt>
             <dd>Public notices from the Press of Atlantic City that mention Galloway.</dd>
         </dl>
-    </div> <!-- span6 -->
+    </div> 
 
-    <div class="span6">
+    <div class="col-lg-6">
         <a class="twitter-timeline" href="https://twitter.com/GallowayNow" data-widget-id="323787555659194368" data-chrome="nofooter" width="400" height="500">Tweets by @GallowayNow</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
 
-</div> <!-- row -->
+</div> 

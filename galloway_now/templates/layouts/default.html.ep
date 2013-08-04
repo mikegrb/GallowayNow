@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="What's happening in Galloway, now.">
     <meta name="author" content="Michael Greb michael@thegrebs.com">
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap3.min.css" rel="stylesheet">
     <link href="/assets/css/gallowaynow.css" rel="stylesheet">
 % if (current_route eq 'radio') {
     <link href="/assets/css/jplayer.blue.monday.css" rel="stylesheet">
@@ -19,30 +19,28 @@
     <link rel="icon" href="/assets/img/gnow.ico" type="image/x-icon">
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">GallowayNow</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <%== $active_tab == 1 ? '<li class="active">':'<li>'%><a href="/">Home</a></li>
-              <%== $active_tab == 2 ? '<li class="active">':'<li>'%><a href="/radio">Fire/EMS Radio</a></li>
-              <%== $active_tab == 3 ? '<li class="active">':'<li>'%><a href="/outages">Power Outages</a></li>
-              <%== $active_tab == 4 ? '<li class="active">':'<li>'%><a href="/notices">Public Notices</a></li>
-              <%== $active_tab == 5 ? '<li class="active">':'<li>'%><a href="/calendar">Calendar</a></li>
-              <%== $active_tab == 6 ? '<li class="active">':'<li>'%><a href="/links">Links</a></li>
-              <%== $active_tab == 7 ? '<li class="active">':'<li>'%><a href="/about">About</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+  <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
+  <div class="container">
+    <a class="navbar-brand" href="/">GallowayNow</a>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="nav-collapse collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <%== $active_tab == 1 ? '<li class="active">':'<li>'%><a href="/">Home</a></li>
+        <%== $active_tab == 2 ? '<li class="active">':'<li>'%><a href="/radio">Fire/EMS Radio</a></li>
+        <%== $active_tab == 3 ? '<li class="active">':'<li>'%><a href="/outages">Power Outages</a></li>
+        <%== $active_tab == 4 ? '<li class="active">':'<li>'%><a href="/notices">Public Notices</a></li>
+        <%== $active_tab == 5 ? '<li class="active">':'<li>'%><a href="/calendar">Calendar</a></li>
+        <%== $active_tab == 6 ? '<li class="active">':'<li>'%><a href="/links">Links</a></li>
+        <%== $active_tab == 7 ? '<li class="active">':'<li>'%><a href="/about">About</a></li>
+      </ul>
     </div>
-    <div class="container">
+  </div>
+  </div>
+  <div class="container" style="padding-top:60px;">
 % for my $alert (  @{ nws_alerts() } ) {
     <div class="alert<%= $alert->{class} %>">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -54,7 +52,7 @@
     </div>
 % if (current_route !~ /^radio/) { 
     <script src="/assets/js/jquery1.9.1.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bootstrap3.min.js"></script>
 % } 
 
 <!-- Piwik -->
