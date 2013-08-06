@@ -1,5 +1,5 @@
 % layout 'default';
-% title 'Public Notices';
+% title 'Public Notices - ' . $notice->{title};
 
 <h3 class="notice_title"><%= $notice->{title} %></h3>
 <div class="notice_text"><p><%== $notice->{body} %></p></div>
