@@ -29,6 +29,7 @@ sub startup {
     $r->get('/radio/today')->to('Radio#ArchiveToday');
     $r->get('/outages/')->to( 'Outages#index',       active_tab => 3 );
     $r->get('/notices/')->to( 'PublicNotices#index', active_tab => 4 );
+    $r->get('/notices/search')->to('PublicNotices#search', active_tab => 4);
     $r->get('/notices/:page')->to( 'PublicNotices#index', active_tab => 4 );
     $r->get('/notice/:id')->to( 'PublicNotices#view', active_tab => 4 );
     $r->get('/calendar/')->to( 'Calendar#index', active_tab => 5 );

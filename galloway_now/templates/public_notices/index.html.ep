@@ -6,6 +6,16 @@
 
 <p><a href="/assets/public_notices.xml"><i class="icon-rss-sign icon-large"></i></a>
    An <a href="/assets/public_notices.xml">RSS feed</a> of these notices is available.</p>
+
+<form action="/notices/search" method="get">
+ <div class="input-group">
+   <input type="text" class="form-control" name="notices">
+   <span class="input-group-btn">
+     <button class="btn btn-default" type="button">Search</button>
+   </span>
+ </div>
+</form>
+
 % for my $notice (@$notices) {
       <h3 class="notice_title"><a href="/notice/<%= $notice->{id} %>"><%= $notice->{title} %></a></h3>
       <div class="notice_text"><p><%== $notice->{body} %></p></div>
