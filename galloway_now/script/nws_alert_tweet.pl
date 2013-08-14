@@ -183,16 +183,20 @@ try {
         }
 
         if ( $event_gets_tweeted{ $events->{$event}{event} } ) {
-
-            my $nt = Net::Twitter->new(
-                traits              => [qw/OAuth API::RESTv1_1/],
-                consumer_key        => $config->{consumer_key},
-                consumer_secret     => $config->{consumer_secret},
-                access_token        => $config->{access_token},
-                access_token_secret => $config->{access_token_secret},
-            );
-            $nt->update($tweet);
-            say "Tweeted.";
+            if ( -e '/tmp/no-tweet' ) {
+                say "Would have tweeted but /tmp/no-tweet extists";
+            }
+            else {
+                my $nt = Net::Twitter->new(
+                    traits              => [qw/OAuth API::RESTv1_1/],
+                    consumer_key        => $config->{consumer_key},
+                    consumer_secret     => $config->{consumer_secret},
+                    access_token        => $config->{access_token},
+                    access_token_secret => $config->{access_token_secret},
+                );
+                $nt->update($tweet);
+                say "Tweeted.";
+            }
         }
     }
 }
