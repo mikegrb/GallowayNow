@@ -2,7 +2,7 @@
 % title 'Fire/EMS Radio Archive';
 
 <div class="row">
-  <div class="col-lg-5">
+  <div class="col-lg-4">
     <div class="sb-fixed">
       <div id="datepicker"></div>
       <div style="width:220;margin-top:50px;">
@@ -46,7 +46,7 @@
 
 
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-8">
     <p>Select the day you are interested in from the calendar on
       the left, then click on text in one of the hours' boxes to play the
       archived audio from the top of that hour.</p>
@@ -85,26 +85,39 @@ $(function () {
           if (! line) return;
           var hour = line.match(/^\d{2}/);
           $('#log:not(:has(#log_' + hour + '))').append(
-            '<div id="log_' + hour + '" class="loghour">\n'
-            + '<div class="pull-right"><a href="/radio/archive/' + date + '#' + hour  +'"><i class="icon-link"></i></a></div>'
-            + '<a name="' + hour + '"><p><i class="icon-bullhorn"></i> Listen to ' + hour + ':00 - ' + hour +':59</p></a>'
-            + '</div>'
+            '<div id="log_' + hour + '" class="loghour panel panel-primary">'
+            + '<div class="panel-heading">'
+              + '<div class="pull-right btn-group">'
+                + '<a class="btn btn-default btn-xs" href="#" title="Click to listen to the audio for this hour in your browser."><i class="icon-bullhorn icon-large"></i></a>'
+                + '<a class="btn btn-default btn-xs dbtn" href="/radio/archive/mp3/' + date + '/' + hour  +'00.mp3" title="Click to download this hour as an MP3."><i class="icon-download icon-large dbtn"></i></a>'
+                + '<a class="btn btn-default btn-xs lbtn" href="/radio/archive/' + date + '#' + hour  +'" title="Click to update the browser address with a link to share that jumps straight to this hour."><i class="icon-link icon-large lbtn"></i></a>'
+              + '</div>'
+              + '<h4><a name="' + hour +'">Listen to ' + hour + ':00 - ' + hour +':59</a></h4>'
+              + '<div class="clearfix"></div>'
+            + '</div'
+            + '<div class="panel-body">'
+            + '</div></div>'
           );
           $("#log_" + hour).append(line + "<br/>\n");
         });
         History.pushState(null, null, '/radio/archive/' + date);
         _gaq.push(['_trackPageview', '/radio/archive/' + date]);
         $('#log').prepend('<a href="#end">Jump to end of log</a>');
+        $("#log").tooltip();
 
         $('.loghour').click(function (event) {
           var hour = event.target.id;
-          if (!hour) hour = $( event.target ).closest('div[class="loghour"]')[0].id;
+          if (!hour) hour = $( event.target ).closest('div[class~="loghour"]')[0].id;
           if (!hour) return;
           hour = hour.split('_')[1];
 
-          if (event.target.className === 'icon-link') {
+          var $target = $(event.target);
+          if ($target.hasClass('lbtn')) {
             window.location.hash = hour;
             return false;
+          }
+          if ($target.hasClass('dbtn')) {
+            return true;
           }
 
           var mp3_path = '/radio/archive/mp3/' + date + '/' + hour + '00.mp3';

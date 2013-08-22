@@ -5,19 +5,12 @@
     width: 600px;
     font-size: x-small;
 }
-#log a:hover {
-    cursor:pointer;
+#log h4 a  {
+    color: #ffffff;
 }
 #log a {
     color: #333333;
-}
-.loghour {
-    background-color: #eee;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-    margin-top:    10px;
-    margin-bottom: 10px;
-    padding:  15px;
+    text-decoration: none;
 }
 @media (min-width: 768px) { 
   .sb-fixed{
