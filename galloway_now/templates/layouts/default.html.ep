@@ -7,6 +7,7 @@
     <meta name="description" content="What's happening in Galloway, now.">
     <meta name="author" content="Michael Greb michael@thegrebs.com">
     <link href="/assets/css/bootstrap3.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="/assets/css/gallowaynow.css" rel="stylesheet">
 % if (current_route eq 'radio') {
     <link href="/assets/css/jplayer.blue.monday.css" rel="stylesheet">
