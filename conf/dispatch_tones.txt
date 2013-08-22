@@ -12,6 +12,7 @@
 1232.0 1820.0   Abs FD
 232.0 1820.0    Abs FD
 1640.6 688.3    Abs Squad 8 Duty Crew
+547.5 688.3     Abs Squad 8 Duty Crew
 1640.6 750      Abs Squad 8 All Call
 547.5 750       Abs Squad 8 All Call
 688.3 656.3     MEDCOM Squad
