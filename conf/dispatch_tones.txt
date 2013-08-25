@@ -4,6 +4,7 @@
 922.5 623.7     GTEMS 26-7 Duty Crew
 922.5 656.3     GTEMS 26-7 All Call
 1625 640.6      GTFD
+330.5 640.6     GTFD Fire Inspector
 984.4 640.6     GTFD 26-1 Oceanville
 2359.4 640.6    GTFD 26-2 Germania
 437.5 640.6     GTFD 26-3 Pomona
