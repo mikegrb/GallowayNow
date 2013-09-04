@@ -19,7 +19,7 @@ my $ua = Mojo::UserAgent->new;
 my $items
     = $ua->get('http://webus.telvue.com/wi/index.aspx?cid=39')
     ->res->dom->at('#MessageSelect')
-    ->children->map( sub { [ $_->attrs('value'), $_->text ] } );
+    ->children->map( sub { [ $_->attr('value'), $_->text ] } );
 
 open my $index, '>', $out_path . '/index.html';
 
