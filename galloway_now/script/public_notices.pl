@@ -37,7 +37,7 @@ for my $notice ( reverse $res->dom->find('.admarket-ad-listing')->each ) {
 
     # parse stuffs
     my $title    = $notice->at('h3 > a')->text;
-    my $link     = $notice->at('h3 > a')->attrs('href');
+    my $link     = $notice->at('h3 > a')->attr('href');
     my $text     = $notice->at('.toggleAd')->text(0);
     my ($id)     = ( $link =~ m|/classifieds/ads/(\d+)/$| );
     my ($pub_id) = ($text) =~ m| #(\d+) Pub Date|;
