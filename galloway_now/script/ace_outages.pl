@@ -24,7 +24,7 @@ die "Didn't get data :'(" unless $report && $data;
 my $total_without_power = $report->{custs_out};
 my $total_outages       = $data->{total_outages};
 
-my @rrd_ds = (
+my %rrd_ds = (
     total_without => $total_without_power,
     total_outages => $total_outages
 );
@@ -32,10 +32,8 @@ my @rrd_ds = (
 for my $area ( @{ $report->{areas} } ) {
     my $county = lc $area->{area_name};
     $county =~ tr/ /_/;
-    push @rrd_ds, (
-        "${county}_without" => $area->{custs_out},
-        "${county}_total"   => $area->{total_custs},
-        );
+    $rrd_ds{"${county}_without"} = $area->{custs_out};
+    $rrd_ds{"${county}_total"}   = $area->{total_custs};
 }
 
 my $rrd = RRD::Simple->new(
@@ -46,7 +44,16 @@ my $rrd = RRD::Simple->new(
     on_missing_ds  => "add",
 );
 
-$rrd->update( $timestamp, @rrd_ds );
+while ( my ( $ds, $value ) = each %rrd_ds ) {
+    next unless $ds =~ m/^([^_]+)_without$/;
+    my $area       = $1;
+    my $last_value = $rrd->info->{ds}{$ds}{last_ds};
+    my $delta      = $value - $last_value;
+    next unless abs($delta) >= 500;
+    say 'Large magnitude change for ' . ucfirst($area) . ', ' . $delta . '.';
+}
+
+$rrd->update( $timestamp, %rrd_ds );
 
 # $rrd->graph(
 #     destination => '/home/michael/public_html/ace_outages',
