@@ -46,7 +46,7 @@ my $rrd = RRD::Simple->new(
 
 while ( my ( $ds, $value ) = each %rrd_ds ) {
     next unless $ds =~ m/^([^_]+)_without$/;
-    my $area       = $1;
+    my $area       = ucfirst $1;
     my $last_value = $rrd->info->{ds}{$ds}{last_ds};
     my $delta      = $value - $last_value;
     next unless abs($delta) >= 500;
