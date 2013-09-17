@@ -63,6 +63,7 @@
 7983	Medic 1
 7084	Medic 2
 7908	Medic 4
+7986	Medic 4
 12444	Medic 5
 7913	Medic 6
 7971	Medic 6
@@ -80,5 +81,4 @@
 7911	Squad 32
 7944    Squad 34
 7909	Squad 39
-7986	Squad 40
 
