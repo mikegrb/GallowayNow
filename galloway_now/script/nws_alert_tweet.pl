@@ -157,7 +157,7 @@ my %currently_active = ();
 
 try {
     my $alert = Weather::NOAA::Alert->new( [ $config->{county_zone} ] );
-    $alert->errorLog(1);
+    # $alert->errorLog(1);
     $alert->poll_events();
 
     my $events = $alert->get_events()->{ $config->{county_zone} };
