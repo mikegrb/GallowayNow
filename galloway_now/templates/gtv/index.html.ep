@@ -1,0 +1,65 @@
+% layout 'default';
+% title 'GTV';
+
+
+<div class="sb-fixed" style="width:300px; z-index:1;">
+  
+  <ul class="nav nav-pills nav-stacked">
+% for my $section ( @{ $gtv_data->{messages} } ) {
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <%= $section->{title} %> <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+%   for my $item ( @{ $section->{items} } ) {
+        <li><a href="#<%= $item->{id} %>"><%= $item->{title} %></a></li>
+%   }
+      </ul>
+    </li>
+% }
+  </ul>
+</div>
+
+<div style="padding-left:350px;">
+  <p>
+    Public information messages are available within Galloway Township on G-TV
+    Channel 2.  The currently active messages are available below.  To have your
+    information broadcast, contact Barbara Fiedler. Contact details and
+    additional information are available on the
+    <a href="http://www.gtnj.org/g-tv.html">township website</a>.
+  </p>
+
+% for my $section ( @{ $gtv_data->{messages} } ) {
+  <h4><%= $section->{title} %></h4>
+%   for my $item ( @{ $section->{items} } ) {
+      <a name="<%= $item->{id} %>">&nbsp;</a>
+      <div id="carousel-<%= $item->{id} %>" class="carousel slide" data-interval="false" style="width:400px;">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+%        for my $page ( 0 .. $item->{pages} - 1 ) {
+          <li data-target="#carousel-<%= $item->{id} %>" data-slide-to="<%= $page %>" class="<%= $page == 0 ? ' active' : '' %>"></li>
+%        }
+        </ol>
+        <!-- Slides -->
+        <div class="carousel-inner">
+%         for my $page ( 1 .. $item->{pages} ) {
+          <div class="item<%= $page == 1 ? ' active' : '' %>">
+            <img src="/assets/img/gtv/<%= $item->{id} . '-' . $page . '.png' %>" alt="<%= $item->{title} . ' Page ' . $page %>">
+          </div>
+%         }
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-<%= $item->{id} %>" data-slide="prev">
+          <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-<%= $item->{id} %>" data-slide="next">
+          <span class="icon-next"></span>
+        </a>
+      </div>
+
+
+%   }
+  <hr style="border-top: 4px solid #57918A;width: 80%"/>
+% }
+</div>

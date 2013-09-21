@@ -28,6 +28,7 @@ sub startup {
     $r->get('/radio/log')->to('Radio#GetLog');
     $r->get('/radio/today')->to('Radio#ArchiveToday');
     $r->get('/outages/')->to( 'Outages#index',       active_tab => 3 );
+    $r->get('/gtv/')->to( 'Gtv#index', active_tab => 8 );
     $r->get('/notices/')->to( 'PublicNotices#index', active_tab => 4 );
     $r->get('/notices/search')->to('PublicNotices#search', active_tab => 4);
     $r->get('/notices/:page')->to( 'PublicNotices#index', active_tab => 4 );

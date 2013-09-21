@@ -33,6 +33,7 @@
         <%== $active_tab == 1 ? '<li class="active">':'<li>'%><a href="/">Home</a></li>
         <%== $active_tab == 2 ? '<li class="active">':'<li>'%><a href="/radio">Fire/EMS Radio</a></li>
         <%== $active_tab == 3 ? '<li class="active">':'<li>'%><a href="/outages">Power Outages</a></li>
+        <%== $active_tab == 8 ? '<li class="active">':'<li>'%><a href="/gtv">GTV</a></li>
         <%== $active_tab == 4 ? '<li class="active">':'<li>'%><a href="/notices">Public Notices</a></li>
         <%== $active_tab == 5 ? '<li class="active">':'<li>'%><a href="/calendar">Calendar</a></li>
         <%== $active_tab == 6 ? '<li class="active">':'<li>'%><a href="/links">Links</a></li>
