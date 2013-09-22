@@ -14,16 +14,17 @@ use POSIX 'strftime';
 
 $| = 1;
 
-my $OUT_PATH  = $FindBin::Bin . '/../data/gtv';
+my $OUT_PATH  = $FindBin::Bin . '/../../data/gtv';
 my $YAML_PATH = $OUT_PATH . '/data.yml';
 my $IMG_PATH  = $OUT_PATH . '/images/';
 mkdir $OUT_PATH unless -d $OUT_PATH;
 mkdir $IMG_PATH unless -d $IMG_PATH;
 
-my $seen  = YAML::Tiny->read($YAML_PATH) || YAML::Tiny->new;
-my $data  = YAML::Tiny->new;
-my $today = strftime( '%F', localtime );
+my $seen = YAML::Tiny->read($YAML_PATH) || YAML::Tiny->new;
+my $data = YAML::Tiny->new;
+$data->[0]{add_date} = $seen->[0]{add_date};
 
+my $today = strftime( '%F', localtime );
 my $ua = Mojo::UserAgent->new;
 
 my $items
@@ -36,7 +37,7 @@ for my $item (@$items) {
     $item->[0] =~ s/:/-/g;
     if ( $item->[1] =~ m/^- (.*)$/ ) {
         my $item = { id => $item->[0], title => $1 };
-        if ( !$item->{pages} = seen($item) ) {
+        unless ( $item->{pages} = seen($item) ) {
             $data->[0]{add_date}{$today} ||= [];
             push @{ $data->[0]{add_date}{$today} }, $item->{id};
             $item->{pages} = get_pages($item);
