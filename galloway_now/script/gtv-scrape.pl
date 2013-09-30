@@ -49,6 +49,7 @@ for my $item (@$items) {
         $heading = { title => $item->[1], items => [] };
     }
 }
+push @{ $data->[0]{messages} }, $heading if $heading;
 $data->write($YAML_PATH);
 
 sub seen {
