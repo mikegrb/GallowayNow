@@ -64,7 +64,6 @@ sub seen {
 
 sub get_pages {
     my ($item) = @_;
-    return 0;
     print "Grabbing $item->{title}... ";
     my ( $cid, $mid, $mpi ) = split /-/, $item->{id};
     my $url
