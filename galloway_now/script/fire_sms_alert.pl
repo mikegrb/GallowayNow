@@ -52,11 +52,11 @@ my @fire_units
     @fire_lines;
 
 if ( @fire_units < $config->{required_units} ) {
-    say @fire_lines
-        . ' lines matching fire in activity log but only '
-        . @fire_units
-        . ' units transmittting: ' . "\n"
-        . join "\n", @fire_lines;
+    # say @fire_lines
+    #     . ' lines matching fire in activity log but only '
+    #     . @fire_units
+    #     . ' units transmittting: ' . "\n"
+    #     . join "\n", @fire_lines;
     exit 1;
 }
 
