@@ -21,6 +21,11 @@ my $report = $ua->get($url.'/report.js')->res->json->{file_data}->{curr_custs_af
 my $data = $ua->get($url.'/data.js')->res->json->{file_data};
 die "Didn't get data :'(" unless $report && $data;
 
+if ( $data->{servlet_interval} != 600 || $data->{storm_mode} ne 'n' ) {
+    say "Unseen storm mode or interval: storm_mode: $data->{storm_mode}, "
+        . "interval $data->{servlet_interval}";
+}
+
 my $total_without_power = $report->{custs_out};
 my $total_outages       = $data->{total_outages};
 
