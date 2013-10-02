@@ -53,6 +53,13 @@ while ( my ( $ds, $value ) = each %rrd_ds ) {
     say 'Large magnitude change for ' . ucfirst($area) . ', ' . $delta . '.';
 }
 
+if ( $timestamp == $rrd->last ) {
+    # don't freak out if last update isn't older than an hour
+    exit unless $timestamp < time - 3600;
+    die "Haven't updated rrd since "
+        . scalar( localtime( $rrd->last ) ) . "!\n";
+}
+
 $rrd->update( $timestamp, %rrd_ds );
 
 # $rrd->graph(
