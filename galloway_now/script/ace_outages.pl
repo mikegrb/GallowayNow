@@ -4,6 +4,10 @@ use strict;
 use warnings;
 use 5.014;
 
+use FindBin;
+BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
+
+use GallowayNow::SMS;
 use Mojo::UserAgent;
 use Data::Dumper;
 use Date::Parse;
@@ -55,7 +59,9 @@ while ( my ( $ds, $value ) = each %rrd_ds ) {
     my $last_value = $rrd->info->{ds}{$ds}{last_ds};
     my $delta      = $value - $last_value;
     next unless abs($delta) >= 500;
-    say 'Large magnitude change for ' . ucfirst($area) . ', ' . $delta . '.';
+    my $message =  "Large magnitude change for $area, $delta, now $value.";
+    send_sms($message) if $area eq 'Atlantic';
+    say $message;
 }
 
 if ( $timestamp == $rrd->last ) {

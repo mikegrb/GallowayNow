@@ -9,6 +9,7 @@ BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 use DateTime;
 use File::Touch;
 use GallowayNow;
+use GallowayNow::SMS;
 use Config::Auto;
 use POSIX 'strftime';
 use WWW::Twilio::API;
@@ -69,20 +70,7 @@ my $units = join ',',
 my $message = @fire_lines . " fire lines from $units.";
 say $message;
 
-my $twilio = WWW::Twilio::API->new(
-    AccountSid => $config->{account_sid},
-    AuthToken  => $config->{auth_token},
-);
-my $res = $twilio->POST(
-    'SMS/Messages.json',
-    From => $config->{from},
-    To   => $config->{alerts_to},
-    Body => $message,
-);
-unless ( $res->{code} =~ /^2../ ) {
-    die "Error: ($res->{code}): $res->{message}\n$res->{content}";
-}
+send_sms($message);
 
 system '/usr/bin/touch', $config->{touch_file};
 
-say $res->{content};
