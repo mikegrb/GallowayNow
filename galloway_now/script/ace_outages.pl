@@ -58,10 +58,11 @@ while ( my ( $ds, $value ) = each %rrd_ds ) {
     my $area       = ucfirst $1;
     my $last_value = $rrd->info->{ds}{$ds}{last_ds};
     my $delta      = $value - $last_value;
-    next unless abs($delta) >= 500;
+    next unless abs($delta) >= 100;
     my $message =  "Large magnitude change for $area, $delta, now $value.";
-    send_sms($message) if $area eq 'Atlantic';
     say $message;
+    next unless abs($delta) >= 500;
+    send_sms($message) if $area eq 'Atlantic';
 }
 
 if ( $timestamp == $rrd->last ) {
