@@ -13,6 +13,8 @@ use Data::Dumper;
 use Date::Parse;
 use RRD::Simple;
 
+# http://www.atlanticcityelectric.com/home/emergency/maps/stormcenter/data/thematic/current/thematic_areas.xml
+
 my $ua = Mojo::UserAgent->new;
 
 my $directory = get_directory();
