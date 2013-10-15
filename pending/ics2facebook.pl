@@ -7,6 +7,7 @@ use Config::JSON;
 use Ouch;
 
 use List::Util 'first';
+use YAML::Tiny;
 use Data::Dumper;
 use Data::Printer;
 use Data::ICal;
@@ -29,9 +30,14 @@ my $ical
     )->content;
 my $calendar = Data::ICal->new( data => $ical );
 
+my $seen = YAML::Tiny->read("seen.yml") || YAML::Tiny->new;
+
 # post events
 foreach my $entry ( @{ $calendar->entries } ) {
     next unless $entry->properties->{summary}[0]{value};
+    next if $seen->[0]{uids}{ $entry->properties->{uid}[0]{value} };
+    $seen->[0]{uids}{ $entry->properties->{uid}[0]{value} } = scalar localtime;
+
     for my $time ( 'dtstart', 'dtend' ) {
         next if $entry->properties->{$time}[0]{value} =~ /Z$/;
         $entry->properties->{$time}[0]{value}
@@ -48,3 +54,4 @@ foreach my $entry ( @{ $calendar->entries } ) {
         ->publish;
 }
 
+$seen->write("seen.yml");
