@@ -57,6 +57,7 @@
 # Absecon Fire
 16132   Dispatch
 4924    Engine 84
+4926    Rescue 8
 4928    F88
 
 # MEDCOM
