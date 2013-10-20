@@ -36,7 +36,6 @@ my $seen = YAML::Tiny->read("seen.yml") || YAML::Tiny->new;
 foreach my $entry ( @{ $calendar->entries } ) {
     next unless $entry->properties->{summary}[0]{value};
     next if $seen->[0]{uids}{ $entry->properties->{uid}[0]{value} };
-    $seen->[0]{uids}{ $entry->properties->{uid}[0]{value} } = scalar localtime;
 
     for my $time ( 'dtstart', 'dtend' ) {
         next if $entry->properties->{$time}[0]{value} =~ /Z$/;
@@ -45,13 +44,25 @@ foreach my $entry ( @{ $calendar->entries } ) {
     }
 
     say $entry->properties->{summary}[0]{value};
-    print Dumper $fb->add_event->set_name(
+    say $entry->properties->{dtstart}[0]{value} . ' - '
+        . $entry->properties->{dtend}[0]{value};
+    say $entry->properties->{location}[0]{value};
+    say $entry->properties->{description}[0]{value};
+    say "";
+
+    my $id = $fb->add_event->set_name(
         $entry->properties->{summary}[0]{value} )
         ->set_location( $entry->properties->{location}[0]{value} )
         ->set_description( $entry->properties->{description}[0]{value} )
         ->set_start_time( DateTime::Format::ICal->parse_datetime( $entry->properties->{dtstart}[0]{value} ) )
         ->set_end_time( DateTime::Format::ICal->parse_datetime( $entry->properties->{dtend}[0]{value} ) )
-        ->publish;
+        ->publish->as_hashref->{id};
+
+    $seen->[0]{uids}{ $entry->properties->{uid}[0]{value} } = {
+        added_epoch => time,
+        added_human => scalar localtime,
+        id          => $id,
+        title       => $entry->properties->{summary}[0]{value} };
 }
 
 $seen->write("seen.yml");
