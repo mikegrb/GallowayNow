@@ -21,11 +21,22 @@
             <dt><a href="/notices/">Public Notices</a></dt>
             <dd>Public notices from the Press of Atlantic City that mention Galloway.</dd>
         </dl>
+
     </div> 
 
     <div class="col-lg-6">
+      <div class="fb-like-box" data-href="http://www.facebook.com/GallowayNow" data-width="400" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="false" data-show-border="true"></div>
+      <br/><br/>
         <a class="twitter-timeline" href="https://twitter.com/GallowayNow" data-widget-id="323787555659194368" data-chrome="nofooter" width="400" height="500">Tweets by @GallowayNow</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
 
 </div> 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=456571711128061";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
