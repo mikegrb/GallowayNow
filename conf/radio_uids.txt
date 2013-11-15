@@ -19,7 +19,7 @@
 # 26-1 Oceanville
 113     Engine 26-13
 114     Engine 26-14
-1116    Enginge 26-16
+116     Enginge 26-16
 117     Utility 26-17
 118     Tanker 26-18
 
@@ -40,6 +40,7 @@
 338     Rescue 26-38
 
 # 26-4 Bayview
+400     Chief 26-40
 440     Command 26-40
 443     Utility 26-43
 444     Engine 26-44
