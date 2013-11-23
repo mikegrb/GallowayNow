@@ -13,6 +13,9 @@
 779     Rehab 26-79
 780     R-2600
 
+# Galloway PD
+1234    GTPD Chief
+
 # Galloway Fire
 2608    26-06
 
