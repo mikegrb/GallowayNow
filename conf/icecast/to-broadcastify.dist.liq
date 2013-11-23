@@ -9,4 +9,4 @@ output.icecast( %mp3(stereo=false, bitrate=16, samplerate=22050),
  host="audio1.radioreference.com",  port = 80, password =  "",
  genre="Scanner",  description="Scanner audio", mount="", 
  name="Galloway and Absecon Police, Fire / EMS", user="source",
- url="http://www.gallowaynow.com", fallible=true, gallowaynow)
+ url="http://www.gallowaynow.com", mksafe(gallowaynow))
