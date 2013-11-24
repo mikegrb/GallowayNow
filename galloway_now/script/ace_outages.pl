@@ -23,7 +23,7 @@ my $url
     = 'http://stormcenter.atlanticcityelectric.com.s3.amazonaws.com/data/interval_generation_data/'
     . $directory;
 
-my $report = $ua->get($url.'/report.js')->res->json->{file_data}->{curr_custs_aff}->{areas}->[0];
+my $report = $ua->get($url.'/report2.js')->res->json->{file_data}->{curr_custs_aff}->{areas}->[0]->{areas}->[0];
 my $data = $ua->get($url.'/data.js')->res->json->{file_data};
 die "Didn't get data :'(" unless $report && $data;
 
