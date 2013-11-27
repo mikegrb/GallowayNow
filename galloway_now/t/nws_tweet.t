@@ -63,6 +63,27 @@ use GallowayNow::NWSAlert::ToTweet;
                 'Flood Advisory issued July 01 at 12:36PM EDT until July 01 at 4:30PM EDT by NWS Philadelphia - Mount Holly',
         }
     },
+    'Wind Advisory' => {
+        tweet =>
+            'Wind Advisory for Atlantic County until November 27 at 10:00AM, issued by @NWS_MountHolly',
+        data => {
+            'event'       => 'Wind Advisory',
+            'severity'    => 'Minor',
+            'polygon'     => undef,
+            'effective'   => '2013-11-26T03:55:00-05:00',
+            'instruction' => '',
+            'category'    => 'Met',
+            'certainty'   => 'Likely',
+            'delete'      => 0,
+            'urgency'     => 'Expected',
+            'description' => 'blahb lah',
+            'expires'     => '2013-11-27T10:00:00-05:00',
+            'senderName'  =>
+                  'NWS Philadelphia - Mount Holly (New Jersey, Delaware, Southeastern Pennsylvania)',
+            'headline'    =>
+                  'Wind Advisory issued November 26 at 3:55AM EST until November 27 at 10:00AM EST by NWS Philadelphia - Mount Holly',
+        }
+    },
     'Spc Weather Statement' => {
         tweet => 'Special Weather Statement issued at 5:20PM by @NWS_MountHolly',
         data  => {
