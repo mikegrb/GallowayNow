@@ -45,6 +45,15 @@ for my $area ( @{ $report->{areas} } ) {
     $county =~ tr/ /_/;
     $rrd_ds{"${county}_without"} = $area->{custs_out};
     $rrd_ds{"${county}_total"}   = $area->{total_custs};
+
+    if ( $county eq 'atlantic' ) {
+        my ($galloway)
+            = grep { $_->{area_name} eq 'Galloway Twp' } @{ $area->{areas} };
+        next unless $galloway;
+        $rrd_ds{galloway_without} = $galloway->{custs_out};
+        $rrd_ds{galloway_total}   = $galloway->{total_custs};
+
+    }
 }
 
 my $rrd = RRD::Simple->new(
@@ -63,8 +72,7 @@ while ( my ( $ds, $value ) = each %rrd_ds ) {
     next unless abs($delta) >= 100;
     my $message =  "Large magnitude change for $area, $delta, now $value.";
     say $message;
-    next unless abs($delta) >= 500;
-    send_sms($message) if $area eq 'Atlantic';
+    send_sms($message) if $area eq 'Galloway';
 }
 
 if ( $timestamp == $rrd->last ) {
@@ -76,18 +84,21 @@ if ( $timestamp == $rrd->last ) {
 
 $rrd->update( $timestamp, %rrd_ds );
 
-# $rrd->graph(
-#     destination => '/home/michael/public_html/ace_outages',
-#     basename    => 'outages',
-#     width       => 800,
-#     height      => 200,
-# );
-
 $rrd->graph(
     destination     => '/home/michael/public_html/ace_outages',
     basename        => 'total_outage',
     sources         => [qw (total_without total_outages)],
     title           => "Total ACE Customers w/o Power",
+    extended_legend => 1,
+    width           => 800,
+    height          => 200,
+);
+
+$rrd->graph(
+    destination     => '/home/michael/public_html/ace_outages',
+    basename        => 'galloway_twp_outage',
+    sources         => ['galloway_without'],
+    title           => "Galloway Twp Customers w/o Power",
     extended_legend => 1,
     width           => 800,
     height          => 200,
