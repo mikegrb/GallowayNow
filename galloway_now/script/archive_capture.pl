@@ -21,6 +21,8 @@ my $have_feed = 0;
 
 # http://www.thregr.org/~wavexx/software/fIcy/
 
+my $mp3_path;
+
 while (1) {
     run_fork {
         child {
@@ -28,7 +30,7 @@ while (1) {
                 . strftime( '/%Y/%m/%d/', localtime );
             my $filename = strftime( '%H00.mp3', localtime );
             system 'mkdir', '-p', $path;
-            $filename = $path . $filename;
+            $mp3_path = $path . $filename;
 
             reload_uids();
 
@@ -38,7 +40,7 @@ while (1) {
                 undef, undef, $err,
                 qq{
                 /home/michael/bin/fPls -T 10 -L-1 -v -M $seconds_left $m3u_url -t | \
-                /usr/bin/sox  -t mp3 - $filename silence -l 1 0.3 1% -1 2.0 1 }
+                /usr/bin/sox  -t mp3 - $mp3_path silence -l 1 0.3 1% -1 2.0 1 }
             );
 
             system( '/usr/bin/touch', $path . 'log.txt' )
@@ -133,6 +135,8 @@ sub process_metadata {
         }
 
         print colored ( "$timestamp $metadata\n", $color );
+
+        $metadata .= ' |' . -s $mp3_path if ( $mp3_path && -s $mp3_path );
 
         open( my $fh, '>>', $path . "log.txt" )
             or warn "Couldn't open log: $!";
