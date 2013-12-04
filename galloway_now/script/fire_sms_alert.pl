@@ -37,6 +37,7 @@ my $lines = `tail -n $config->{log_lines} $archive_path`;
 
 for my $line ( split /\n/, $lines ) {
     if ( $line =~ /^(\d{2}):(\d{2}):(\d{2}) / ) {
+        $line =~ s/\|\d+$//;
         push @kept_lines, $line
             if $strp->parse_datetime("$today $1:$2:$3") > $threshold;
     }
