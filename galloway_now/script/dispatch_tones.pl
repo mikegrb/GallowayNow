@@ -26,7 +26,8 @@ my $td = Audio::Analyzer::ToneDetect->new(
     chunk_max       => 70,
     rejected_freqs  => [1000],
     valid_error_cb  => sub {
-        out( sprintf "VF %s DF %s EF %.2f", @_ );
+        out( sprintf "VF %s DF %s EF %.2f", @_ ),
+        return;
     } );
 
 reload_tone_map();
