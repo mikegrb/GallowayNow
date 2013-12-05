@@ -84,6 +84,14 @@ $(function () {
         data.split(/\n/).forEach(function (line) {
           if (! line) return;
           var hour = line.match(/^\d{2}/);
+          var byte_offset = line.match(/ \|(\d+)$/);
+          if (byte_offset) {
+            byte_offset = byte_offset[1]
+            line = line.replace(/ \|\d+$/, "");
+          }
+          else {
+            byte_offset = 0;
+          }
           $('#log:not(:has(#log_' + hour + '))').append(
             '<div id="log_' + hour + '" class="loghour panel panel-primary">'
             + '<div class="panel-heading">'
