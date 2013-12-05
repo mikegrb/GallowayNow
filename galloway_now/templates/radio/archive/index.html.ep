@@ -64,6 +64,7 @@
 
 <script>
 var _gaq = _gaq || [];
+var hour_sizes;
 
 $(function () {
   $("#datepicker").datepicker({
@@ -115,7 +116,13 @@ $(function () {
         $('#log').prepend('<a href="#end">Jump to end of log</a>');
         $("#log").tooltip();
 
-        $('.loghour').click(function (event) {
+        $.get("/radio/archive/" + date + "/sizes", function(data) {
+          if (data.size_for_hour) {
+            hour_sizes = data.size_for_hour;
+          }
+        });
+
+        $('#log').click(function (event) {
           var hour = event.target.id;
           if (!hour) hour = $( event.target ).closest('div[class~="loghour"]')[0].id;
           if (!hour) return;
@@ -134,7 +141,26 @@ $(function () {
           $("#jquery_jplayer_1").jPlayer( "setMedia", {
                   mp3: mp3_path,
           });
-          $("#jquery_jplayer_1").jPlayer( "play" );
+
+          if (event.target.nodeName === 'LI'
+          && $( event.target ).data('byteoffset')
+          && hour_sizes
+          && hour in hour_sizes ) {
+              $("#jquery_jplayer_1").jPlayer( "load" );
+
+              var offset = $( event.target ).data('byteoffset');
+              var size = hour_sizes[hour];
+              var pcnt = ( offset / size * 100 );
+              if (pcnt < 0) pcnt = 0;
+
+              $("#jquery_jplayer_1").jPlayer( "play" );
+              $("#jquery_jplayer_1").jPlayer( "playHead", pcnt );
+
+          }
+          else {
+            $("#jquery_jplayer_1").jPlayer( "play" );
+          }
+
           _gaq.push(['_trackEvent', 'Audio Archive', 'Play', date + '/' + hour + '00']);
           return false;
         });
