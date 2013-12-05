@@ -6,6 +6,28 @@ use Mojo::Base 'Mojolicious::Controller';
 sub index {
 }
 
+sub sizes {
+    my $self = shift;
+
+    my $year  = $self->stash('year');
+    my $month = $self->stash('month');
+    my $day   = $self->stash('day');
+
+    for ($year, $month, $day) {
+        if (/[^\d]/) {
+            $self->render({text => 'nop', status => 403});
+            return;
+        }
+    }
+    
+    my $sizes;
+    for my $mp3 (glob $GallowayNow::archive_path . "/$year/$month/$day/*mp3") {
+        (my $hour = $mp3) =~ s|^.*/(\d\d)00\.mp3$|$1|;
+        $sizes->{$hour} = -s $mp3;
+    }
+    $self->render( json => { size_for_hour => $sizes } );
+}
+
 sub get_log {
     my $self = shift;
     my $date = $1 if ( $self->stash('date') =~ m|^(\d{4}/\d{2}/\d{2})$| );

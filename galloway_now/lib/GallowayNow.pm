@@ -25,6 +25,7 @@ sub startup {
     $r->get('/')->to( 'Main#index', active_tab => 1 );
     $r->get('/radio/')->to( 'Radio#index', active_tab => 2 );
     $r->get('/radio/archive/:year/:month/:day')->to('radio-archive#index', active_tab => 2, year => undef, month => undef, day => undef);
+    $r->get('/radio/archive/:year/:month/:day/sizes')->to('radio-archive#sizes', active_tab => 2);
     $r->get('/radio/log')->to('Radio#GetLog');
     $r->get('/radio/today')->to('Radio#ArchiveToday');
     $r->get('/outages/')->to( 'Outages#index',       active_tab => 3 );
