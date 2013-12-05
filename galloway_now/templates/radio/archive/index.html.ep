@@ -102,11 +102,13 @@ $(function () {
               + '</div>'
               + '<h4><a name="' + hour +'">' + hour + ':00 - ' + hour +':59</a></h4>'
               + '<div class="clearfix"></div>'
-            + '</div'
+            + '</div>'
             + '<div class="panel-body">'
-            + '</div></div>'
+            + '</div><ul></ul></div>'
           );
-          $("#log_" + hour).append(line + "<br/>\n");
+          
+          line = '<li data-byteoffset="' + byte_offset + '">' + line + "</li>\n";
+          $("#log_" + hour + "> ul").append(line);
         });
         History.pushState(null, null, '/radio/archive/' + date);
         _gaq.push(['_trackPageview', '/radio/archive/' + date]);
@@ -135,7 +137,8 @@ $(function () {
           $("#jquery_jplayer_1").jPlayer( "play" );
           _gaq.push(['_trackEvent', 'Audio Archive', 'Play', date + '/' + hour + '00']);
           return false;
-        })
+        });
+        
 
         if (target_hour) {
           $(window).scrollTop($('#log_' + target_hour ).position().top - 10)
