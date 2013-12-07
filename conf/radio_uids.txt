@@ -84,8 +84,7 @@
 7954    Medic 12
 7969    Medic 12
 
-7945    Squad 30
-7949    Squad 30
+7949    BLS 981
 791     Squad 31
 7968    Squad 31
 7911    Squad 32
