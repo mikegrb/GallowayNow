@@ -7,32 +7,40 @@
 
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#daily" data-toggle="tab">Total Daily</a></li>
-    <li><a href="#atlco_daily" data-toggle="tab">Atlantic Co. Daily</a></li>
-    <li><a href="#ocnco_daily" data-toggle="tab">Ocean Co. Daily</a></li>
-    <li><a href="#tot_weekly" data-toggle="tab">Total Weekly</a></li>
-    <li><a href="#atlco_weekly" data-toggle="tab">Atlantic Co. Weekly</a></li>
-    <li><a href="#ocn_weekly" data-toggle="tab">Ocean Co. Weekly</a></li>
-
+    <li class="active"><a href="#galloway" data-toggle="tab">Galloway Township</a></li>
+    <li><a href="#atlco" data-toggle="tab">Atlantic County</a></li>
+    <li><a href="#ocnco" data-toggle="tab">Ocean County</a></li>
+    <li><a href="#total" data-toggle="tab">Total ACE Outages</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="daily">
-        <img src="http://thegrebs.com/~michael/ace_outages/total_outage-daily.png" width="881" height="313" />
+    <div class="tab-pane active" id="galloway">
+      <h3>Galloway Township Power Outages</h3>
+      <h4>Last 24 Hours</h4>
+      <img src="http://thegrebs.com/~michael/ace_outages/galloway_twp_outage-daily.png" width="881" height="313" />
+      <h4>Last 7 Days</h4>
+      <img src="http://thegrebs.com/~michael/ace_outages/galloway_twp_outage-weekly.png" width="881" height="313" />
     </div>
-    <div class="tab-pane" id="atlco_daily">
-        <img src="http://thegrebs.com/~michael/ace_outages/atlantic_county_outage-daily.png" width="881" height="299" />
+    <div class="tab-pane" id="atlco">
+      <h3>Atlantic County Power Outages</h3>
+      <h4>Last 24 Hours</h4>
+      <img src="http://thegrebs.com/~michael/ace_outages/atlantic_county_outage-daily.png" width="881" height="299" />
+      <h4>Last 7 Days</h4>
+      <img src="http://thegrebs.com/~michael/ace_outages/atlantic_county_outage-weekly.png" width="881" height="299" />
     </div>
-    <div class="tab-pane" id="ocnco_daily">
-        <img src="http://thegrebs.com/~michael/ace_outages/ocean_county_outage-daily.png" width="881" height="299" />
+    <div class="tab-pane" id="ocnco">
+      <h3>Ocean County Power Outages</h3>
+      <h4>Last 24 Hours</h4>
+      <img src="http://thegrebs.com/~michael/ace_outages/ocean_county_outage-daily.png" width="881" height="299" />
+      <h4>Last 7 Days</h4>
+      <img src="http://thegrebs.com/~michael/ace_outages/ocean_county_outage-weekly.png" width="881" height="299" />
+
     </div>
-    <div class="tab-pane" id="tot_weekly">
-        <img src="http://thegrebs.com/~michael/ace_outages/total_outage-weekly.png" width="881" height="313" />
-    </div>
-    <div class="tab-pane" id="atlco_weekly">
-        <img src="http://thegrebs.com/~michael/ace_outages/atlantic_county_outage-weekly.png" width="881" height="299" />
-    </div>
-    <div class="tab-pane" id="ocn_weekly">
-        <img src="http://thegrebs.com/~michael/ace_outages/ocean_county_outage-weekly.png" width="881" height="299" />
+    <div class="tab-pane" id="total">
+      <h3>Full Atlantic City Electric Service Area Power Outages</h3>
+      <h4>Last 24 Hours</h4>
+      <img src="http://thegrebs.com/~michael/ace_outages/total_outage-daily.png" width="881" height="313" />
+      <h4>Last 7 Days</h4>
+      <img src="http://thegrebs.com/~michael/ace_outages/total_outage-weekly.png" width="881" height="313" />
     </div>
   </div>
 </div>
