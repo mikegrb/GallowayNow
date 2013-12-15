@@ -19,7 +19,7 @@ sub get {
     if (   $params->{AccountSid} eq $config->{account_sid}
         && $params->{From} eq $config->{alerts_to} )
     {   my $command = $params->{Body};
-        if ( $command =~ m/^\s*sleep (\d+) ?(h|m)?\s*$/i ) {
+        if ( $command =~ m/^\s*sleep ?(\d+) ?(h|m)?\s*$/i ) {
             my $period = $1;
             my $units = $2 || 'm';
             $period *= 60 if $units eq 'h';
