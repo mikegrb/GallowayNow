@@ -15,6 +15,7 @@
 #log  ul {
     padding: 0;
     list-style-type: none;
+    cursor: pointer;
 }
 @media (min-width: 768px) { 
   .sb-fixed{
