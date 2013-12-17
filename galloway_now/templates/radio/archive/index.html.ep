@@ -47,9 +47,9 @@
 
   </div>
   <div class="col-lg-8">
-    <p>Select the day you are interested in from the calendar on
+    <p class="lead">Select the day you are interested in from the calendar on
       the left, then click on text in one of the hours' boxes to play the
-      archived audio from the top of that hour.</p>
+      archived audio from that point.</p>
     <h4 id="logtitle"></h4>
     <div id="log"></div>
     <div id="end"><a name="end">&nbsp;</a></div>
