@@ -11,10 +11,9 @@
 
 <code>http://gallowaynow.com:8000/stream</code>
 
-<br/><br/><br/>
 <link href="/assets/css/jplayer.blue.monday.css" rel="stylesheet">
 
-<h4>Web Player:</h4>
+<h2>Current Activity</h2>
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio">
   <div class="jp-type-single">
@@ -50,15 +49,11 @@
     </div>
   </div>
 </div>
-
-<h4>Current Activity:</h4>
 <pre id="metalog"></pre>
 
 <script src="/assets/js/jquery1.9.1.min.js"></script>
 <script src="/assets/js/bootstrap3.min.js"></script>
 <script src="/assets/js/jquery.jplayer.min.js"></script>
-
-<br/><br/>
 
 <h2><a href="/radio/archive/">Archive</a></h2>
 <p>An archive of previous radio traffic is <a href="/radio/archive/">available</a>.</p>
