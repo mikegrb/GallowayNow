@@ -2,9 +2,10 @@
     width: 300px;
 }
 #metalog {
-    width: 600px;
     font-size: x-small;
-    margin-top: 10px;
+    background-color: #eee;
+    margin-bottom: 0px;
+    border: none;
 }
 #log h4 a  {
     color: #ffffff;
