@@ -3,9 +3,13 @@
 }
 #metalog {
     font-size: x-small;
-    background-color: #eee;
+    background-color: #ccc;
     margin-bottom: 0px;
-    border: none;
+    border-top-color: #009be3;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-radius: 0px;
+    height: 91px;
 }
 #log h4 a  {
     color: #ffffff;
