@@ -3,10 +3,10 @@
 
 
 <form action="/notices/search" method="get">
- <div class="input-group">
-   <input type="text" class="form-control" name="notices" value="<%= param 'notices' %>"> 
+ <div class="input-group" style="width:400px">
+   <input type="text" class="form-control" name="notices">
    <span class="input-group-btn">
-     <button class="btn btn-default" type="button">Search</button>
+     <button class="btn btn-default" type="button" style="color:#000">Search</button>
    </span>
  </div>
 </form>
