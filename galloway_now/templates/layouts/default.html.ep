@@ -31,10 +31,20 @@
     <div class="nav-collapse collapse bs-navbar-collapse">
       <ul class="nav navbar-nav">
         <%== $active_tab == 1 ? '<li class="active">':'<li>'%><a href="/">Home</a></li>
-        <%== $active_tab == 2 ? '<li class="active">':'<li>'%><a href="/radio">Fire/EMS Radio</a></li>
+        <%== $active_tab == 2 ? '<li class="active dropdown">':'<li class="dropdown">'%>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fire/EMS Radio <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/radio">Live Audio</a></li>
+            <li><a href="/radio/archive">Archive</a></li>
+          </ul>
         <%== $active_tab == 3 ? '<li class="active">':'<li>'%><a href="/outages">Power Outages</a></li>
-        <%== $active_tab == 8 ? '<li class="active">':'<li>'%><a href="/gtv">GTV</a></li>
-        <%== $active_tab == 4 ? '<li class="active">':'<li>'%><a href="/notices">Public Notices</a></li>
+        <%== $active_tab == 4  || $active_tab == 8 ? '<li class="active dropdown">':'<li class="dropdown">'%>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notices <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/notices">Legal Notices</a></li>
+            <li><a href="/gtv">GTV</a></li>
+          </ul>
+        </li>
         <%== $active_tab == 5 ? '<li class="active">':'<li>'%><a href="/calendar">Calendar</a></li>
         <%== $active_tab == 6 ? '<li class="active">':'<li>'%><a href="/links">Links</a></li>
         <%== $active_tab == 7 ? '<li class="active">':'<li>'%><a href="/about">About</a></li>
