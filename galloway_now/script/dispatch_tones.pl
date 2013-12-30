@@ -81,9 +81,13 @@ sub get_next_tone {
 
 sub log_dispatch {
     my $line = shift;
-    my $path = $GallowayNow::archive_path
-        . strftime( '/%Y/%m/%d/log.txt', localtime );
-    open( my $fh, '>>', $path )
+    my $path = $GallowayNow::archive_path . strftime( '/%Y/%m/%d', localtime );
+
+    my $mp3 = $path . strftime( '/%H00.mp3', localtime );
+    my $location = ( ( -s $mp3 ) - 1024 ) if -s $mp3;
+    $line .= ' |' . $location if $location > 0;
+
+    open( my $fh, '>>', $path . '/log.txt' )
         or warn "Couldn't open log: $!";
     say $fh $line;
 }
