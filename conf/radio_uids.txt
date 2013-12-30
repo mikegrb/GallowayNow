@@ -80,13 +80,12 @@
 7971    Medic 6
 7918    Medic 7
 7081    Medic 8
-799     Medic 10
+7926    Medic 10
 7954    Medic 12
 7969    Medic 12
 
-7949    BLS 981
-7940    BLS 981
-7964    BLS 1084
+7961    Squad 981
+7946    BLS 1084
 
 # below may be deprecated, seems medcom is switching bls to 3 & 4 digit ids
 791     Squad 31
