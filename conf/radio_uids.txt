@@ -83,6 +83,7 @@
 7926    Medic 10
 7954    Medic 12
 7969    Medic 12
+7925    Medic 12
 
 7961    Squad 981
 7946    BLS 1084
