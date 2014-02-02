@@ -10,8 +10,9 @@
 437.5 640.6     GTFD 26-3 Pomona
 1125 640.6      GTFD 26-4 Bayview
 875.0 640.6     GTFD 26-5 S Egg Harbor
-1232.0 1820.0   Abs FD
-232.0 1820.0    Abs FD
+437.5 1812.5    Port FD 21
+1232.0 1812.5   Abs FD
+232.0 1812.5    Abs FD
 1640.6 688.3    Abs Squad 8 Duty Crew
 547.5 688.3     Abs Squad 8 Duty Crew
 1640.6 750      Abs Squad 8 All Call
