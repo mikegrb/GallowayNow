@@ -8,7 +8,7 @@ sub index {
     my $self = shift;
     my $page = $self->stash('page') || 1;
 
-    my $dbh = DBI->connect( 'dbi:SQLite:dbname=' . $GallowayNow::notices_db );
+    my $dbh = DBI->connect( 'dbi:SQLite:dbname=' . $self->config->{notices_db} );
     my $q   = $dbh->prepare(
         q{
         SELECT * FROM `Notice`
@@ -31,7 +31,7 @@ sub index {
 
 sub view {
     my $self = shift;
-    my $dbh  = DBI->connect( 'dbi:SQLite:dbname=' . $GallowayNow::notices_db );
+    my $dbh  = DBI->connect( 'dbi:SQLite:dbname=' . $self->config->{notices_db} );
     my $q    = $dbh->prepare(q{ SELECT * FROM `Notice` WHERE `id` = ? });
     $q->execute( $self->stash('id') );
     my $notice = $q->fetchrow_hashref;

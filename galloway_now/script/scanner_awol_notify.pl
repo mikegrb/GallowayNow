@@ -6,11 +6,11 @@ use 5.010;
 use FindBin;
 BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 
-use GallowayNow;
 use File::Touch;
 use Config::Auto;
 use POSIX 'strftime';
 use WWW::Twilio::API;
+use GallowayNow::MockConfig;
 
 my $config
     = Config::Auto::parse("$FindBin::Bin/../../conf/fire_sms_alert.conf");
@@ -23,7 +23,7 @@ exit 10
     > time - ( $config->{awol_time} * 60 * 2 );
 
 my $today = strftime( '%Y/%m/%d/', localtime );
-my $archive_path = $GallowayNow::archive_path . '/' . $today . '/log.txt';
+my $archive_path = $GallowayNow::MockConfig::config->{archive_path} . '/' . $today . '/log.txt';
 
 my $silence_time = ( time - ( stat $archive_path )[9] ) / 60;
 

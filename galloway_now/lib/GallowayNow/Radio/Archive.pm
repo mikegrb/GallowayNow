@@ -21,7 +21,7 @@ sub sizes {
     }
     
     my $sizes;
-    for my $mp3 (glob $GallowayNow::archive_path . "/$year/$month/$day/*mp3") {
+    for my $mp3 (glob $self->config->{archive_path} . "/$year/$month/$day/*mp3") {
         (my $hour = $mp3) =~ s|^.*/(\d\d)00\.mp3$|$1|;
         $sizes->{$hour} = -s $mp3;
     }
@@ -36,7 +36,7 @@ sub get_log {
     $self->res->headers->content_type('text/plain');
     $self->res->content->asset(
         Mojo::Asset::File->new(
-            path => $GallowayNow::archive_path . '/' . $date . '/log.txt'
+            path => $self->config->{archive_path} . '/' . $date . '/log.txt'
         ) );
     $self->rendered(200);
 }

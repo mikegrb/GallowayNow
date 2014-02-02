@@ -2,7 +2,7 @@ package GallowayNow::SMS;
 
 use Mojo::Base -strict;
 
-use GallowayNow;
+use GallowayNow::MockConfig;
 use WWW::Twilio::API;
 use Config::Auto;
 
@@ -16,7 +16,7 @@ sub send {
     my $message = shift;
 
     my $config = Config::Auto::parse(
-        $GallowayNow::app_path . '/conf/fire_sms_alert.conf' );
+        $GallowayNow::MockConfig::config->{app_path} . '/conf/fire_sms_alert.conf' );
 
     my $twilio = WWW::Twilio::API->new(
         AccountSid => $config->{account_sid},

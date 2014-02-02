@@ -9,10 +9,10 @@ BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 
 use IPC::Open3;
 use Proc::Fork;
-use GallowayNow;
 use Term::ANSIColor;
 use Symbol 'gensym';
 use POSIX 'strftime';
+use GallowayNow::MockConfig;
 
 my $m3u_url  = 'http://localhost:8000/stream.m3u';
 my $uid_path = "$FindBin::Bin/../../conf/radio_uids.txt";
@@ -26,7 +26,7 @@ my $mp3_path;
 while (1) {
     run_fork {
         child {
-            my $path = $GallowayNow::archive_path
+            my $path = $GallowayNow::MockConfig::config->{archive_path}
                 . strftime( '/%Y/%m/%d/', localtime );
             my $filename = strftime( '%H00.mp3', localtime );
             system 'mkdir', '-p', $path;

@@ -9,12 +9,13 @@ BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 
 use DBI;
 use XML::RSS;
-use GallowayNow;
+use GallowayNow::MockConfig;
 use Mojo::UserAgent;
 use POSIX 'strftime';
 
 my $url = 'http://www2.pressofac.com/classifieds/public_notices/legals/?query=galloway&limit=200';
-my $dbh = DBI->connect( 'dbi:SQLite:dbname=' . $GallowayNow::notices_db );
+my $dbh = DBI->connect(
+    'dbi:SQLite:dbname=' . $GallowayNow::MockConfg::config->{notices_db} );
 
 #
 # Retrieve Currently Listed Notices

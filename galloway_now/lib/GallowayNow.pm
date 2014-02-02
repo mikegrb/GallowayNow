@@ -5,19 +5,10 @@ use DBI;
 use Sys::Hostname;
 use GallowayNow::NWSAlert::Active;
 
-our $notices_db   = '/home/michael/public_html/public_notices/notices.db';
-our $archive_path = '/home/michael/public_html/stream/archive';
-our $app_path     = '/home/michael/gallowaynow';
-
-if ( hostname() ne 'orion' ) {
-    $notices_db   = '/Users/mgreb/Dropbox/Documents/proj/public_notice/notices.db';
-    $archive_path = '/Users/mgreb/Dropbox/Documents/proj/scanner_archive/test';
-    $app_path     = '/Users/mgreb/proj/gallowaynow';
-}
-
 sub startup {
     my $self = shift;
 
+    $self->plugin('JSONConfig');
     $self->helper( nws_alerts => \&GallowayNow::NWSAlert::Active::fetch );
 
     my $r = $self->routes;

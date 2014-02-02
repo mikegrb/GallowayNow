@@ -8,12 +8,12 @@ BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 
 use DateTime;
 use File::Touch;
-use GallowayNow;
 use GallowayNow::SMS;
 use Config::Auto;
 use POSIX 'strftime';
 use WWW::Twilio::API;
 use List::MoreUtils 'uniq';
+use GallowayNow::MockConfig;
 use DateTime::Format::Strptime;
 
 my $config
@@ -27,7 +27,7 @@ exit 10
     > time - ( $config->{sleep_time} * 60 );
 
 my $today        = strftime( '%Y/%m/%d/', localtime );
-my $archive_path = $GallowayNow::archive_path . '/' . $today . '/log.txt';
+my $archive_path = $GallowayNow::MockConfig::config->{archive_path} . '/' . $today . '/log.txt';
 my $strp         = DateTime::Format::Strptime->new( pattern => '%Y/%m/%d/ %T' );
 my $threshold    = DateTime->now( time_zone => 'local', formatter => $strp )
     ->set_time_zone('floating')->subtract( minutes => $config->{sleep_time} );

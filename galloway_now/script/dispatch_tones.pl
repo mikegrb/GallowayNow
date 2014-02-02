@@ -11,7 +11,7 @@ use Audio::Analyzer::ToneDetect;
 use List::MoreUtils 'uniq';
 use Term::ANSIColor;
 use POSIX 'strftime';
-use GallowayNow;
+use GallowayNow::MockConfig;
 
 $| = 1;
 
@@ -81,7 +81,7 @@ sub get_next_tone {
 
 sub log_dispatch {
     my $line = shift;
-    my $path = $GallowayNow::archive_path . strftime( '/%Y/%m/%d', localtime );
+    my $path = $GallowayNow::MockConfig::config->{archive_path} . strftime( '/%Y/%m/%d', localtime );
 
     my $mp3 = $path . strftime( '/%H00.mp3', localtime );
     my $location = ( ( -s $mp3 ) - 1024 ) if -s $mp3;

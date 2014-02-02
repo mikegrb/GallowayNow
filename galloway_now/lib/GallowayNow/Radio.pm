@@ -10,7 +10,7 @@ sub index {
 
 sub GetLog {
     my $self = shift;
-    my $path = $GallowayNow::archive_path . _get_archive_today() . 'log.txt';
+    my $path = $self->config->{archive_path} . _get_archive_today() . 'log.txt';
     my $data = tail($path);
     $data =~ s/ \|\d+$//mg;
     $self->render( text => $data, format => 'txt' );
