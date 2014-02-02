@@ -186,6 +186,9 @@ try {
             if ( -e '/tmp/no-tweet' ) {
                 say "Would have tweeted but /tmp/no-tweet extists";
             }
+            elsif ( length($tweet) > 140 ) {
+                say "Would have tweeted but tweet too long.";
+            }
             else {
                 my $nt = Net::Twitter->new(
                     traits              => [qw/OAuth API::RESTv1_1/],
