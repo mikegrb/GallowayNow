@@ -8,7 +8,7 @@ use GallowayNow::NWSAlert::Active;
 sub startup {
     my $self = shift;
 
-    $self->plugin('JSONConfig');
+    $self->plugin('Config');
     $self->helper( nws_alerts => \&GallowayNow::NWSAlert::Active::fetch );
 
     my $r = $self->routes;
