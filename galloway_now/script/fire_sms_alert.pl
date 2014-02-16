@@ -9,16 +9,14 @@ BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 use DateTime;
 use File::Touch;
 use GallowayNow::SMS;
-use Config::Auto;
 use POSIX 'strftime';
 use WWW::Twilio::API;
 use List::MoreUtils 'uniq';
 use GallowayNow::MockConfig;
 use DateTime::Format::Strptime;
 
-my $config
-    = Config::Auto::parse("$FindBin::Bin/../../conf/fire_sms_alert.conf");
 
+my $config = $GallowayNow::MockConfig::config->{fire_sms};
 $config->{touch_file} .= '_fire';
 
 exit 10

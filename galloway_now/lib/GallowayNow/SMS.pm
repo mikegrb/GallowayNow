@@ -4,7 +4,6 @@ use Mojo::Base -strict;
 
 use GallowayNow::MockConfig;
 use WWW::Twilio::API;
-use Config::Auto;
 
 sub import {
     my $caller = caller;
@@ -15,8 +14,7 @@ sub import {
 sub send {
     my $message = shift;
 
-    my $config = Config::Auto::parse(
-        $GallowayNow::MockConfig::config->{app_path} . '/conf/fire_sms_alert.conf' );
+    my $config = $GallowayNow::MockConfig::config->{twilio};
 
     my $twilio = WWW::Twilio::API->new(
         AccountSid => $config->{account_sid},

@@ -7,14 +7,11 @@ use FindBin;
 BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 
 use File::Touch;
-use Config::Auto;
 use POSIX 'strftime';
-use WWW::Twilio::API;
+use GallowayNow::SMS;
 use GallowayNow::MockConfig;
 
-my $config
-    = Config::Auto::parse("$FindBin::Bin/../../conf/fire_sms_alert.conf");
-
+my $config = $GallowayNow::MockConfig::config->{fire_sms};
 $config->{touch_file} .= '_awol';
 
 exit 10
@@ -34,17 +31,7 @@ my $minutes = sprintf '%02i', $silence_time - ( $hours * 60 );
 
 my $message = "No scanner log activity for $hours:$minutes";
 say $message;
-
-my $twilio = WWW::Twilio::API->new(
-    AccountSid => $config->{account_sid},
-    AuthToken  => $config->{auth_token},
-);
-my $res = $twilio->POST(
-    'SMS/Messages.json',
-    From => $config->{from},
-    To   => $config->{awol_alerts_to},
-    Body => $message,
-);
+send_sms($message);
 
 unless ( $res->{code} =~ /^2../ ) {
     die "Error: ($res->{code}): $res->{message}\n$res->{content}";
