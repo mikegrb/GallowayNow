@@ -15,15 +15,15 @@ sub generate_tweet_from_alert {
 
     my $short_sender;
     my $tweet = $cap_data->{headline};
-    
+
     if ( $tweet =~ m/(?:Weather Statement|Air Quality Alert)/ ) {
         $tweet
-            =~ s/issued \S+ \d+ at (\d+:\d+(?:A|P)M) E(?:S|DT) ? by (.*)$/issued at $1/;
-            $short_sender = $2;
+            =~ s/issued \S+ \d+ at (\d+:\d+(?:A|P)M) E(?:S|D)T ? by (.*)$/issued at $1/;
+        $short_sender = $2;
     }
     else {
         $tweet
-            =~ s/issued .*?until (.*? at \d+:\d+(?:A|P)M) E(?:S|DT) by (.*)$/for Atlantic County until $1, issued/;
+            =~ s/issued .*?until (.*? at \d+:\d+(?:A|P)M) E(?:S|D)T by (.*)$/for Atlantic County until $1, issued/;
         $short_sender = $2;
     }
 
