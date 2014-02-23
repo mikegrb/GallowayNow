@@ -5,7 +5,7 @@ use GallowayNow::NWSAlert::ToTweet;
 %test_data = (
     'Severe Thunderstorm Watch from NWS SPC' => {
         tweet =>
-            'Severe Thunderstorm Watch for Atlantic County until June 28 at 9:00PM, issued by @NWSSPC',
+            'Severe Thunderstorm Watch for Atlantic County until 6/28 9:00PM, issued by @NWSSPC',
         data => {
             'event'       => 'Severe Thunderstorm Watch',
             'effective'   => '2013-06-28T14:10:00-04:00',
@@ -25,7 +25,7 @@ use GallowayNow::NWSAlert::ToTweet;
     },
     'Rip Current Statement' => {
         tweet =>
-            'Rip Current Statement for Atlantic County until June 30 at 11:00PM, issued by @NWS_MountHolly',
+            'Rip Current Statement for Atlantic County until 6/30 11:00PM, issued by @NWS_MountHolly',
         data => {
             'certainty'   => 'Likely',
             'urgency'     => 'Expected',
@@ -45,7 +45,7 @@ use GallowayNow::NWSAlert::ToTweet;
     },
     'Flood Advisory' => {
         tweet =>
-            'Flood Advisory for Atlantic County until July 01 at 4:30PM, issued by @NWS_MountHolly',
+            'Flood Advisory for Atlantic County until 7/01 4:30PM, issued by @NWS_MountHolly',
         data => {
             'certainty'   => 'Likely',
             'urgency'     => 'Expected',
@@ -65,7 +65,7 @@ use GallowayNow::NWSAlert::ToTweet;
     },
     'Wind Advisory' => {
         tweet =>
-            'Wind Advisory for Atlantic County until November 27 at 10:00AM, issued by @NWS_MountHolly',
+            'Wind Advisory for Atlantic County until 11/27 10:00AM, issued by @NWS_MountHolly',
         data => {
             'event'       => 'Wind Advisory',
             'severity'    => 'Minor',
@@ -119,7 +119,25 @@ use GallowayNow::NWSAlert::ToTweet;
             'headline' => 'Air Quality Alert issued July 17 at 9:42AM EDT  by NWS Philadelphia - Mount Holly',
             'expires' => '2013-07-18T00:00:00-04:00'
         }
-    }
+    },
+    'Tornado Watch' => {
+        tweet => 'Tornado Watch for Atlantic County until 2/21 5:00PM, issued by @NWSSPC',
+        data => {
+              'delete' => 0,
+              'event' => 'Tornado Watch',
+              'expires' => '2014-02-21T17:00:00-05:00',
+              'certainty' => 'Likely',
+              'senderName' => 'NWS Storm Prediction Center (Storm Prediction Center - Norman, Oklahoma)',
+              'category' => 'Met',
+              'instruction' => '',
+              'polygon' => undef,
+              'description' => 'blah blah blah',
+              'effective' => '2014-02-21T12:40:00-05:00',
+              'severity' => 'Severe',
+              'urgency' => 'Expected',
+              'headline' => 'Tornado Watch issued February 21 at 12:40PM EST until February 21 at 5:00PM EST by NWS Storm Prediction Center'
+        }
+    },
 );
 
 for my $test ( keys %test_data ) {
