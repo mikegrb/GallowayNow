@@ -8,8 +8,8 @@ use FindBin;
 BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 
 use GallowayNow::NWSAlert::ToTweet;
+use GallowayNow::MockConfig;
 use Weather::NOAA::Alert;
-use Config::Auto;
 use Net::Twitter;
 use YAML::Tiny;
 use Try::Tiny;
@@ -145,9 +145,7 @@ my %event_gets_tweeted = (
     'Winter Weather Advisory'                    => 1,
 
 );
-
-my $config
-    = Config::Auto::parse("$FindBin::Bin/../../conf/nws_alert_tweet.conf");
+my $config = $GallowayNow::MockConfig::config->{nws};
 
 my $yaml
     = YAML::Tiny->read("$FindBin::Bin/../../data/seen.yml") || YAML::Tiny->new;
