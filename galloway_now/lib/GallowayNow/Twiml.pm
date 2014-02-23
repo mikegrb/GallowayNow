@@ -11,9 +11,7 @@ sub get {
     my $params = $self->req->params->to_hash;
     $self->app->log->error( "TwiML Params: " . Dumper($params) );
 
-    my $config
-        = Config::Auto::parse("$FindBin::Bin/../../conf/fire_sms_alert.conf");
-
+    my $config = $self->app->config->{fire_sms};
     my $tw = WWW::Twilio::TwiML->new;
 
     if (   $params->{AccountSid} eq $config->{account_sid}
@@ -26,7 +24,7 @@ sub get {
             my $touch_time = time + $period * 60 - $config->{sleep_time} * 60;
 
             my $ft = File::Touch->new( mtime => $touch_time );
-            $ft->touch( $config->{touch_file} );
+            $ft->touch( $config->{touch_file} . '_fire' );
             $tw->Response->Sms(
                 "sleeping for $period min w/ mtime " . localtime($touch_time) );
         }

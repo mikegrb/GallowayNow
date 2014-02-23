@@ -15,7 +15,6 @@ use List::MoreUtils 'uniq';
 use GallowayNow::MockConfig;
 use DateTime::Format::Strptime;
 
-
 my $config = $GallowayNow::MockConfig::config->{fire_sms};
 $config->{touch_file} .= '_fire';
 
@@ -43,24 +42,13 @@ for my $line ( split /\n/, $lines ) {
 }
 my @fire_lines = grep /fire/i, @kept_lines;
 
-if ( @fire_lines < $config->{required_count} ) {
-#    say @fire_lines . " lines with fire in last $config->{log_lines} lines of $archive_path";
-    exit 0;
-}
+exit 0 if @fire_lines < $config->{required_count};
 
 my @fire_units
     = uniq map { /- (\d+)\ ?\(?([^)]*)?\)?$/ ? ( $2 ? $2 : $1 ) : () }
     @fire_lines;
 
-if ( @fire_units < $config->{required_units} ) {
-    # say @fire_lines
-    #     . ' lines matching fire in activity log but only '
-    #     . @fire_units
-    #     . ' units transmittting: ' . "\n"
-    #     . join "\n", @fire_lines;
-    exit 1;
-}
-
+exit 1 if @fire_units < $config->{required_units};
 
 # shorten and join units for SMS
 # Engine 26-35 becomes E26-35, Rescue 8 R8, Dispatch, D, etc
