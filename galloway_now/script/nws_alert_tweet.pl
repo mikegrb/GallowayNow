@@ -10,6 +10,7 @@ BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 use GallowayNow::NWSAlert::ToTweet;
 use GallowayNow::MockConfig;
 use Weather::NOAA::Alert;
+use WebService::Bitly;
 use Net::Twitter;
 use YAML::Tiny;
 use Try::Tiny;
@@ -169,8 +170,21 @@ try {
 
         say Dumper( $events->{$event} );
 
+        my $bitly = WebService::Bitly->new(
+            user_name    => $config->{bitly_username},
+            user_api_key => $config->{bitly_apikey},
+        );
+        my $url = $event;
+        my $shorten = $bitly->shorten($url);
+        if ($shorten->is_error) {
+            say join ': ', $shorten->status_code, $shorten->status_txt;
+        }
+        else {
+            $url = $shorten->short_url;
+        }
+
         my $tweet
-            = GallowayNow::NWSAlert::ToTweet::generate_tweet_from_alert( $event,
+            = GallowayNow::NWSAlert::ToTweet::generate_tweet_from_alert( $url,
             $events->{$event} );
 
         say "Generated Tweet:\n\t$tweet";
