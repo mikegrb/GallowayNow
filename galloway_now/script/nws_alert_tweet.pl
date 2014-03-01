@@ -208,6 +208,7 @@ try {
                     consumer_secret     => $config->{consumer_secret},
                     access_token        => $config->{access_token},
                     access_token_secret => $config->{access_token_secret},
+                    ssl                 => 1,
                 );
                 $nt->update($tweet);
                 say "Tweeted.";
