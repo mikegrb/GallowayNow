@@ -36,6 +36,7 @@
         <ul>
             <li><a href="http://forecast.weather.gov/MapClick.php?lat=39.475955540420635&lon=-74.50927734375">NWS Point Forecast for Galloway</a></li>
             <li><a href="http://forecast.weather.gov/MapClick.php?lat=39.47596&lon=-74.50927734375&unit=0&lg=english&FcstType=graphical">NWS Hourly Weather Graph for Galloway</a></li>
+            <li><a href="http://forecast.io/#/f/39.4674,-74.5008">Forecast.io</a></li>
         </ul>
     </div>
 </div> <!-- row -->
