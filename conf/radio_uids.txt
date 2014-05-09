@@ -73,6 +73,7 @@
 8716    Chief 1
 7948    Chief 3
 7915    Chief 3
+7933    Chief 4
 
 7983    Medic 1
 7084    Medic 2
