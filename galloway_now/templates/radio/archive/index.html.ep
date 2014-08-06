@@ -78,7 +78,7 @@ $(function () {
 
   function updateLog(date, target_hour) {
     $('#log').text('');
-    $('#logtitle').html('<i class="icon-spinner icon-spin icon-large"></i> Loading activity log...');      
+    $('#logtitle').html('<i class="icon-spinner icon-spin icon-large"></i> Loading activity log...');
     $.get("/radio/archive/log/" + date + "/log.txt", function (data) {
         $('#log').text("");
         $('#logtitle').text('Activity Log for ' + date);
@@ -107,7 +107,7 @@ $(function () {
             + '<div class="panel-body">'
             + '</div><ul></ul></div>'
           );
-          
+
           line = '<li data-byteoffset="' + byte_offset + '">' + line + "</li>\n";
           $("#log_" + hour + "> ul").append(line);
         });
@@ -164,7 +164,7 @@ $(function () {
           _gaq.push(['_trackEvent', 'Audio Archive', 'Play', date + '/' + hour + '00']);
           return false;
         });
-        
+
 
         if (target_hour) {
           $(window).scrollTop($('#log_' + target_hour ).position().top - 10)
@@ -176,15 +176,15 @@ $(function () {
   if ( linkedDate  ) {
     $('#datepicker').datepicker('setDate', linkedDate[1]);
     updateLog( linkedDate[1], linkedDate[2] );
-  } 
+  }
   else {
     updateLog($.datepicker.formatDate('yy/mm/dd', new Date()));
   }
 });
 
 </script>
- 
+
 <style>
 .ui-datepicker-inline { width: 270px }
 </style>
- 
+
