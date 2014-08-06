@@ -50,6 +50,7 @@
     <p class="lead">Select the day you are interested in from the calendar on
       the left, then click on text in one of the hours' boxes to play the
       archived audio from that point.</p>
+    <p id="jump_end" style="visibility:none"><a href="#end">Jump to end of log</a></p>
     <h4 id="logtitle"></h4>
     <div id="log"></div>
     <div id="end"><a name="end">&nbsp;</a></div>
@@ -113,7 +114,7 @@ $(function () {
         });
         History.pushState(null, null, '/radio/archive/' + date);
         _gaq.push(['_trackPageview', '/radio/archive/' + date]);
-        $('#log').prepend('<a href="#end">Jump to end of log</a>');
+        $('#jump_end').show;
         $("#log").tooltip();
 
         $.get("/radio/archive/" + date + "/sizes", function(data) {
