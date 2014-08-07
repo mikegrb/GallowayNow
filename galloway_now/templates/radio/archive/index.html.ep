@@ -47,13 +47,14 @@
 
   </div>
   <div class="col-lg-8">
+    <a name="#top"></a>
     <p class="lead">Select the day you are interested in from the calendar on
       the left, then click on text in one of the hours' boxes to play the
       archived audio from that point.</p>
     <p id="jump_end" style="visibility:none"><a href="#end">Jump to end of log</a></p>
     <h4 id="logtitle"></h4>
     <div id="log"></div>
-    <div id="end"><a name="end">&nbsp;</a></div>
+    <div id="end"><a name="end">&nbsp;</a><a href="#top">Jump to top</a></div>
 </div>
 
 <script src="/assets/js/jquery1.9.1.min.js"></script>
@@ -172,6 +173,17 @@ $(function () {
         }
     })
   };
+
+
+  $("a[href='#top']").click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "fast");
+    return false;
+  });
+
+  $("a[href='#end']").click(function() {
+    $("html, body").animate({ scrollTop: $(document).height() }, "fast");
+    return false;
+  });
 
   var linkedDate = History.getState().url.match(/\/archive\/(\d{4}\/\d{2}\/\d{2})#?(\d{2})?/);
   if ( linkedDate  ) {
