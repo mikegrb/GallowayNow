@@ -156,8 +156,16 @@ $(function () {
               if (pcnt < 0) pcnt = 0;
 
               $("#jquery_jplayer_1").jPlayer( "play" );
-              $("#jquery_jplayer_1").jPlayer( "playHead", pcnt );
+              $("#jquery_jplayer_1").jPlayer( "pause" );
 
+              $("#jquery_jplayer_1").bind($.jPlayer.event.progress, function (event) {
+                 if (event.jPlayer.status.seekPercent >= pcnt) {
+                   $("#jquery_jplayer_1").jPlayer( "playHead", pcnt );
+                   $("#jquery_jplayer_1").jPlayer( "play" );
+                   $("#jquery_jplayer_1").unbind( event );
+
+                 }
+              });
           }
           else {
             $("#jquery_jplayer_1").jPlayer( "play" );
