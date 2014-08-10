@@ -91,6 +91,8 @@
 7961    Squad 981
 7946    BLS 1084
 
+7936    Logistics 3
+
 # below may be deprecated, seems medcom is switching bls to 3 & 4 digit ids
 791     Squad 31
 7968    Squad 31
