@@ -76,7 +76,21 @@ $(function () {
           updateLog(date)
       }
   });
-  $("#jquery_jplayer_1").jPlayer({ swfPath: "/assets/swf" });
+  $("#jquery_jplayer_1").jPlayer({
+      swfPath:  '/assets/swf',
+      solution: 'html, flash',
+      supplied: 'mp3',
+      preload:  'auto',
+      cssSelector: {
+          playbackRateBar: "",
+          playbackRateBarValue: "",
+          fullScreen: "",
+          restoreScreen: "",
+          videoPlay: ""
+      },
+      errorAlerts: true,
+      warningAlerts: true
+  });
 
   function updateLog(date, target_hour) {
     $('#log').text('');
