@@ -14,7 +14,7 @@ use Mojo::UserAgent;
 use POSIX 'strftime';
 
 my $domain = 'http://www.pressofatlanticcity.com';
-my $url = $domain . '/classifieds/community/announcements/legal/?l=10&q=galloway';
+my $url = $domain . '/classifieds/community/announcements/legal/?l=50&q=galloway';
 my $dbh = DBI->connect(
     'dbi:SQLite:dbname=' . $GallowayNow::MockConfig::config->{notices_db} );
 
