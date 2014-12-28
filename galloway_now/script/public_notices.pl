@@ -13,7 +13,8 @@ use GallowayNow::MockConfig;
 use Mojo::UserAgent;
 use POSIX 'strftime';
 
-my $url = 'http://www2.pressofac.com/classifieds/public_notices/legals/?query=galloway&limit=200';
+my $domain = 'http://www.pressofatlanticcity.com';
+my $url = $domain . '/classifieds/community/announcements/legal/?l=10&q=galloway';
 my $dbh = DBI->connect(
     'dbi:SQLite:dbname=' . $GallowayNow::MockConfig::config->{notices_db} );
 
@@ -34,13 +35,13 @@ my $insert = $dbh->prepare(
     }
 );
 
-for my $notice ( reverse $res->dom->find('.admarket-ad-listing')->each ) {
-
+for my $notice ( reverse $res->dom->find('.listing')->each ) {
     # parse stuffs
-    my $title    = $notice->at('h3 > a')->text;
-    my $link     = $notice->at('h3 > a')->attr('href');
-    my $text     = $notice->at('.toggleAd')->text(0);
-    my ($id)     = ( $link =~ m|/classifieds/ads/(\d+)/$| );
+    my $title    = $notice->at('span.actual-title')->text;
+    my $link     = $notice->at('h3.title > a')->attr('href');
+    my ($id)     = ( $link =~ m|ad_([\w-]*)\.html$| );
+
+    my $text     = get_notice_text($domain . $link);
     my ($pub_id) = ($text) =~ m| #(\d+) Pub Date|;
 
     # have we seen this?
@@ -77,7 +78,6 @@ $rss->channel(
     language    => 'en',
     description => "Press of Atlantic City Public Notices Matching Galloway",
     rating => '(PICS-1.1 "http://www.classify.org/safesurf/" 1 r (SS~~000 1))',
-
 );
 
 while ( my $row = $q->fetchrow_hashref ) {
@@ -91,6 +91,12 @@ while ( my $row = $q->fetchrow_hashref ) {
 }
 
 $rss->save( $FindBin::Bin . '/../public/public_notices.xml' );
+
+sub get_notice_text {
+    my $url = shift;
+    state $ua = Mojo::UserAgent->new;
+    return $ua->get($url)->res->dom->at('div.description > span.value > p')->text;
+}
 
 __END__
 
