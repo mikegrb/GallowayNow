@@ -41,19 +41,19 @@ for my $notice ( reverse $res->dom->find('.listing')->each ) {
     my $link     = $notice->at('h3.title > a')->attr('href');
     my ($id)     = ( $link =~ m|ad_([\w-]*)\.html$| );
 
-    my $text     = get_notice_text($domain . $link);
-    my ($pub_id) = ($text) =~ m| #(\d+) Pub Date|;
-
     # have we seen this?
     $seen->execute($id);
     my ($rowid) = $seen->fetchrow_array();
     if ($rowid) {
-        say "We've seen $title - $id  - $pub_id - $link";
+        say "We've seen $title - $id  - $link";
         next;
     }
 
     # it's new
+    my $text     = get_notice_text($domain . $link);
+    my ($pub_id) = ($text) =~ m| #(\d+) Pub Date|;
     $insert->execute( $id, $pub_id, $title, $text );
+
     say "$title - $id  - $pub_id - $link";
     say $text;
     say '*' x 50;
