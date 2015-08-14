@@ -7,8 +7,8 @@
 <h4>Who</h4>
 
 <p>GallowayNow is maintained by <a href="http://michael.thegrebs.com/">Michael Greb</a>,
-  a Galloway resident.  I work for Galloway Township based <a href="http://www.linode.com/">Linode.com</a>
-  as the Lead Systems Developer.  As a software developer and someone interested in my town,
+  a Galloway resident.  I work for <a href="http://www.ziprecruiter.com/">ZipRecruiter.com</a>
+  as a Systems Engineer.  As a software developer and someone interested in my town,
   I wrote software to generate the web pages shown now at GallowayNow over the course
   of a year.  I realized that I had begun to amass a small collection
   of Galloway centric web pages that might be useful to other residents, I purchased
@@ -24,8 +24,9 @@
   <a href="https://github.com/mikegrb/GallowayNow">GitHub</a>.</p>
 
 <h4>The Hardware</h4>
-<p>The site is served by a <a href="http://www.linode.com/">Linode.com</a> server.
-  The live audio feed comes from a <a href="http://www.uniden.com/scanners/homepatrol-1-simple-program-scanner/invt/homepatrol1g">Uniden HP-1</a>
+<p>The site is served by a <a href="http://www.linode.com/">Linode.com</a> server  
+  (Linode is also Galloway Township based).  The live audio feed comes from a 
+  <a href="http://www.uniden.com/scanners/homepatrol-1-simple-program-scanner/invt/homepatrol1g">Uniden HP-1</a>
   scanner at my home connected to a netbook that encodes and streams the audio
   to the Linode for serving.</p>
 
