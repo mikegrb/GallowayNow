@@ -1,17 +1,22 @@
 # Galloway
-16041   Dispatch
-16042   Dispatch
-16043   Dispatch
+111001  Dispatch
+111002  Dispatch
+111003  Dispatch
+111004  Dispatch
 
 # Galloway Ambulance Squad
-770     Command 26-70
-774     26-74
-775     26-75
-776     26-76
-777     26-77
-778     26-78
-779     Rehab 26-79
-780     R-2600
+#770     Command 26-70
+111773     26-73
+111774     26-74
+111775     26-75
+111776     26-76
+111777     26-77
+111778     26-78
+##779     Rehab 26-79
+111770    R-2600
+111780    26-ERT
+
+111783    26-78 Portable
 
 # Galloway PD
 1234    GTPD Chief
@@ -43,7 +48,7 @@
 338     Rescue 26-38
 
 # 26-4 Bayview
-400     Chief 26-40
+111400  Chief 26-40
 440     Command 26-40
 443     Utility 26-43
 444     Engine 26-44
@@ -53,19 +58,29 @@
 # 26-5 South Egg Harbor
 557     Car 26-57
 
+# Absecon
+101003  Dispatch
+101002  Dispatch
+
 # Absecon EMS
-16133   Dispatch
-4975    A85
-4976    A86
-4977    A87
+101801  801
+101806  A87
+#4976    A86
+#4977    A87
 
 # Absecon Fire
-16132   Dispatch
+101603  F800
 4901    F801
 4924    Engine 84
 4925    Engine 85
 4926    Rescue 8
 4928    F88
+
+
+# Egg Harbor City
+142010  Dispatch
+107603  F 103
+107610  Engine 10-1
 
 # MEDCOM
 7097    MEDCOM
