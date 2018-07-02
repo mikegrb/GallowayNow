@@ -1,5 +1,5 @@
 577.5 688.3     AC Squad 14-X
-1092.4 547.5    MEDCOM Medic
+1092.4 562.5    MEDCOM Medic
 313.0 346.7     MEDCOM Squad
 765.0 547.5     MEDCOM Supervisor
 922.5 623.7     GTEMS 26-7 Duty Crew
@@ -8,14 +8,22 @@
 330.5 640.6     GTFD Fire Inspector
 984.4 640.6     GTFD 26-1 Oceanville
 2359.4 640.6    GTFD 26-2 Germania
-437.5 640.6     GTFD 26-3 Pomona
+437.5 656.3     GTFD 26-3 Pomona
 1125 640.6      GTFD 26-4 Bayview
 875.0 640.6     GTFD 26-5 S Egg Harbor
 437.5 1812.5    Port FD 21
 1232.0 1812.5   Abs FD
 232.0 1812.5    Abs FD
+1218.5 1812.5   Abs FD
 1640.6 688.3    Abs Squad 8 Duty Crew
 547.5 688.3     Abs Squad 8 Duty Crew
 1640.6 750      Abs Squad 8 All Call
 547.5 750       Abs Squad 8 All Call
 688.3 656.3     MEDCOM Squad
+437.5 371.5     EHC FD
+1125 1153.4     Northfield FD
+1812.5 1232.0   Ham. 18-1 May's Landing
+1812.5 1820.0   Ham. 18-1 May's Landing
+2073.0 1232.0   Ham. 18-3 Laureldale
+1901.0 1232.0   Ham. 18-5 Cologne
+1232.0 1901.0   Ham. 18-5 Cologne

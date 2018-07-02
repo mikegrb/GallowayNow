@@ -6,13 +6,13 @@
 
 # Galloway Ambulance Squad
 #770     Command 26-70
-111773     26-73
-111774     26-74
-111775     26-75
-111776     26-76
-111777     26-77
-111778     26-78
-##779     Rehab 26-79
+111773    26-73
+111774    26-74
+111775    26-75
+111776    26-76
+111777    26-77
+111778    26-78
+111779    26-79
 111770    R-2600
 111780    26-ERT
 
@@ -83,40 +83,7 @@
 107610  Engine 10-1
 
 # MEDCOM
-7097    MEDCOM
-7910    MEDCOM
-7902    Chief 1
-8716    Chief 1
-7948    Chief 3
-7915    Chief 3
-7933    Chief 4
-
-7983    Medic 1
-7084    Medic 2
-7986    Medic 4
-12444   Medic 5
-7913    Medic 6
-7971    Medic 6
-7918    Medic 7
-7081    Medic 8
-7926    Medic 10
-7954    Medic 12
-7969    Medic 12
-7925    Medic 12
-
-7961    Squad 981
-7946    BLS 1084
-
-7936    Logistics 3
-
-# below may be deprecated, seems medcom is switching bls to 3 & 4 digit ids
-791     Squad 31
-7968    Squad 31
-7911    Squad 32
-7944    Squad 34
-7909    Squad 39
-7908    Squad 40
-
+129211    MEDCOM
 
 # County Emergency Management
 16063   Dispatch
